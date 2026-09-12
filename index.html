@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java Backend Engineer — Interview Mock Guide</title>
+<style>
+  :root{
+    --bg:#f5f7fb; --card:#fff; --text:#172033; --muted:#667085;
+    --primary:#2563eb; --primary2:#1d4ed8; --border:#e5e7eb;
+    --good:#047857; --warn:#b45309; --bad:#b91c1c; --code:#111827;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  .top{max-width:1200px;margin:auto;padding:16px 20px;display:flex;gap:16px;align-items:center}
+  .title{flex:1}
+  .title h1{font-size:20px;margin:0 0 2px}
+  .title p{margin:0;color:var(--muted);font-size:13px}
+  .search{width:min(430px,45vw);padding:11px 14px;border:1px solid #cfd5df;border-radius:10px;font-size:15px;outline:none}
+  .search:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+  .layout{max-width:1200px;margin:22px auto;display:grid;grid-template-columns:235px 1fr;gap:22px;padding:0 20px}
+  aside{position:sticky;top:88px;height:max-content;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
+  aside h3{font-size:13px;margin:4px 8px 10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  aside a{display:block;padding:8px 9px;border-radius:8px;text-decoration:none;color:#344054;font-size:14px}
+  aside a:hover{background:#eff6ff;color:var(--primary)}
+  main{min-width:0}
+  section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:18px}
+  h2{font-size:22px;margin:0 0 8px}
+  h3{font-size:17px;margin:22px 0 8px}
+  h4{font-size:15px;margin:16px 0 7px}
+  .sub{color:var(--muted);margin-top:0}
+  .tag{display:inline-block;padding:3px 8px;border-radius:999px;background:#eef4ff;color:#1d4ed8;font-size:12px;font-weight:700;margin:2px 4px 2px 0}
+  .priority{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 15px}
+  .q{border:1px solid var(--border);border-radius:11px;margin:13px 0;overflow:hidden}
+  .qhead{padding:13px 15px;background:#fafafa;font-weight:700}
+  .answer{padding:13px 15px}
+  .answer strong{color:#111827}
+  pre{background:var(--code);color:#e5e7eb;border-radius:10px;padding:14px;overflow:auto;font-size:13px}
+  code{font-family:Consolas,Monaco,monospace}
+  .note{border-left:4px solid var(--primary);background:#eff6ff;padding:11px 13px;border-radius:0 8px 8px 0;margin:12px 0}
+  .good{border-left-color:var(--good);background:#ecfdf3}
+  .warn{border-left-color:var(--warn);background:#fffbeb}
+  .danger{border-left-color:var(--bad);background:#fef2f2}
+  ul,ol{padding-left:22px}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .mini{border:1px solid var(--border);border-radius:10px;padding:13px}
+  .mini b{display:block;margin-bottom:4px}
+  .muted{color:var(--muted)}
+  .kbd{font-family:monospace;background:#eef2f7;border:1px solid #d9dee7;border-radius:5px;padding:2px 6px}
+  mark{background:#fde68a;padding:0 2px}
+  .hidden{display:none!important}
+  .toolbar{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-bottom:15px}
+  button{border:1px solid var(--border);background:#fff;border-radius:8px;padding:8px 11px;cursor:pointer}
+  button:hover{background:#f8fafc}
+  #count{font-size:13px;color:var(--muted)}
+  footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 20px 40px}
+  @media(max-width:850px){
+    .layout{grid-template-columns:1fr}
+    aside{position:static}
+    .search{width:100%}
+    .top{flex-wrap:wrap}
+    .title{flex-basis:100%}
+    .grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div class="title">
+      <h1>Java Backend Engineer — Interview Mock Guide</h1>
+      <p>Built around your CV + the Ride-Hailing Platform R&amp;D JD</p>
+    </div>
+    <input id="search" class="search" type="search" placeholder="Search questions, Java, Kafka, Redis, MySQL..." aria-label="Search the whole page">
+  </div>
+</header>
+
+<div class="layout">
+<aside>
+  <h3>Quick navigation</h3>
+  <a href="#strategy">1. Strategy</a>
+  <a href="#intro">2. Tell me about yourself</a>
+  <a href="#java">3. Java &amp; Concurrency</a>
+  <a href="#spring">4. Spring Boot</a>
+  <a href="#distributed">5. Distributed Systems</a>
+  <a href="#redis">6. Redis</a>
+  <a href="#kafka">7. Kafka</a>
+  <a href="#mysql">8. MySQL</a>
+  <a href="#nosql">9. NoSQL / MongoDB</a>
+  <a href="#docker">10. Docker / Kubernetes</a>
+  <a href="#system">11. System Design</a>
+  <a href="#behavioral">12. Behavioral</a>
+  <a href="#cv">13. CV Questions</a>
+  <a href="#rapid">14. Rapid Revision</a>
+</aside>
+
+<main id="content">
+
+<section id="strategy">
+<h2>1. Tonight's Strategy</h2>
+<p class="sub">Do not try to become an expert in every technology. Your goal is to explain your real experience clearly and understand the distributed-system concepts behind this JD.</p>
+<div class="priority">
+  <span class="tag">★★★★★ Java + Concurrency</span>
+  <span class="tag">★★★★★ Spring Boot</span>
+  <span class="tag">★★★★★ Distributed Systems</span>
+  <span class="tag">★★★★★ Redis</span>
+  <span class="tag">★★★★★ Kafka</span>
+  <span class="tag">★★★★ MySQL</span>
+  <span class="tag">★★★ MongoDB</span>
+  <span class="tag">★★★ Docker/Kubernetes</span>
+</div>
+<div class="note"><b>Your strongest CV story:</b> In your previous Mid-Level Java Developer role, you used Spring Boot, Kafka, MySQL and Spring Batch, and optimized batch processing with multithreading, reducing report generation time by 40%.</div>
+<div class="note warn"><b>Do not overclaim:</b> Your CV does not explicitly show production experience with Kubernetes, Redis distributed locks, or database sharding. Say you understand the concepts if that is true, and distinguish that from hands-on production experience.</div>
+</section>
+
+<section id="intro">
+<h2>2. “Tell me about yourself”</h2>
+<p class="sub">Target: 60–90 seconds. Focus on backend experience rather than listing every frontend technology.</p>
+<div class="q">
+<div class="qhead">Interviewer: “Could you please introduce yourself and tell me about your background?”</div>
+<div class="answer">
+<p><b>Suggested answer:</b></p>
+<p>“Sure. My name is Thant Htoo Aung, and I have over three years of experience in software development, with a strong focus on Java and backend development.</p>
+<p>I started my career working with Java, MyBatis, Oracle, and REST APIs. Then, in my previous role as a Mid-Level Java Developer, I worked on a financial and accounting system using Spring Boot, Kafka, MySQL, and Spring Batch. One of my main achievements was optimizing batch processing with multithreading, which reduced report generation time by around 40%.</p>
+<p>Currently, I’m working as a Full-Stack Developer, but I’ve been focusing heavily on backend development and microservices. I’ve worked with Java Spring Boot, Spring Cloud Gateway, Oracle, PostgreSQL, and AWS, and I’ve also worked on several enterprise and microservice-based projects.</p>
+<p>I’m interested in this position because it focuses on Java backend development, high-concurrency systems, microservices, Kafka, Redis, and database performance, which are closely related to my experience. I’m also interested in developing deeper experience with distributed and high-scale backend systems.”</p>
+</div>
+</div>
+<div class="note good"><b>Memory structure:</b> 3+ years → Java/MyBatis/Oracle → Spring Boot/Kafka/MySQL → multithreading/40% improvement → current microservices → why this role.</div>
+</section>
+
+<section id="java">
+<h2>3. Java &amp; Concurrency</h2>
+
+<div class="q"><div class="qhead">Q1. What is a Thread?</div><div class="answer">
+<p>A thread is a lightweight unit of execution within a process. Multiple threads can execute tasks concurrently within the same application.</p>
+<p><b>Interview:</b> “A thread is a lightweight unit of execution within a process. Multiple threads can execute tasks concurrently and share process resources.”</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q2. What is a Thread Pool and why use it?</div><div class="answer">
+<p>A thread pool manages reusable threads. Instead of creating a new thread for every task, tasks are submitted to the pool.</p>
+<ul><li>Reuses threads</li><li>Reduces thread-creation overhead</li><li>Controls concurrency and resource usage</li></ul>
+<pre><code>ExecutorService executor = Executors.newFixedThreadPool(10);
+executor.submit(() -&gt; {
+    // task
+});</code></pre>
+<p><b>Interview:</b> “A thread pool manages reusable threads to execute tasks efficiently and control the number of concurrent tasks.”</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q3. What is synchronized?</div><div class="answer">
+<p><code>synchronized</code> provides mutual exclusion for a monitor. For the same monitor, only one thread can execute the synchronized section at a time.</p>
+<pre><code>synchronized void withdraw(int amount) {
+    balance -= amount;
+}</code></pre>
+<p><b>Key point:</b> It coordinates threads inside the JVM. It is not a distributed lock across multiple server instances.</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q4. What is volatile?</div><div class="answer">
+<p><code>volatile</code> guarantees visibility of writes to a variable across threads. It does <b>not</b> make compound operations atomic.</p>
+<pre><code>volatile boolean running = true;</code></pre>
+<p><b>Remember:</b> <code>volatile</code> = visibility, not full thread safety.</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q5. synchronized vs Lock?</div><div class="answer">
+<div class="grid">
+<div class="mini"><b>synchronized</b>Simple, language-level locking, automatic release when leaving the synchronized block/method.</div>
+<div class="mini"><b>Lock / ReentrantLock</b>Explicit lock management and features such as <code>tryLock()</code> and interruptible locking.</div>
+</div>
+<p><b>Interview:</b> “ReentrantLock gives more explicit and flexible control than synchronized, while synchronized is simpler for straightforward mutual exclusion.”</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q6. What is ConcurrentHashMap?</div><div class="answer">
+<p>It is a thread-safe Map implementation designed for concurrent access. It provides better concurrency than simply synchronizing every access to a normal map.</p>
+<p><b>Interview:</b> “I would use ConcurrentHashMap when multiple threads need to access and update shared map data concurrently.”</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q7. What is a Race Condition?</div><div class="answer">
+<p>A race condition happens when multiple threads access shared data concurrently and the result depends on execution timing.</p>
+<pre><code>int count = 0;
+
+// Thread A and B both do:
+count++;
+
+// Expected: 2
+// Possible result: 1</code></pre>
+<p>Solutions include synchronization, locks, atomic operations, thread-safe collections, database controls, or distributed locks depending on the problem.</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q8. What is a Deadlock?</div><div class="answer">
+<p>A deadlock occurs when threads wait for locks held by each other, so none can continue.</p>
+<pre><code>Thread A: Lock 1 → waits for Lock 2
+Thread B: Lock 2 → waits for Lock 1</code></pre>
+<p><b>Prevention:</b> consistent lock ordering, minimizing nested locks, short lock duration, and mechanisms such as <code>tryLock()</code>.</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q9. What is JVM Heap vs Stack?</div><div class="answer">
+<p><b>Heap:</b> shared memory area where objects are generally allocated and managed by garbage collection.</p>
+<p><b>Stack:</b> each thread has its own stack, containing method frames, local variables and execution state.</p>
+<p><b>Interview:</b> “The heap is shared among threads and stores objects, while each thread has its own stack for method execution and local state.”</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q10. How does your CV demonstrate concurrency experience?</div><div class="answer">
+<p>Use your real example:</p>
+<p>“In my previous role, I worked on financial reporting with Spring Batch. Some report processing was taking too long, so I optimized batch processing using multithreading. This reduced report generation time by around 40%. That experience taught me both the performance benefits of concurrency and the need to consider shared resources and thread safety.”</p>
+</div></div>
+</section>
+
+<section id="spring">
+<h2>4. Spring Boot &amp; Spring Cloud</h2>
+
+<div class="q"><div class="qhead">Q1. What is IoC?</div><div class="answer"><p>Inversion of Control means object creation and dependency management are controlled by the Spring container rather than by application classes themselves.</p></div></div>
+
+<div class="q"><div class="qhead">Q2. What is Dependency Injection?</div><div class="answer">
+<p>Dependencies are provided to a class instead of the class creating them itself.</p>
+<pre><code>@Service
+class OrderService {
+    private final OrderRepository repository;
+
+    OrderService(OrderRepository repository) {
+        this.repository = repository;
+    }
+}</code></pre>
+<p><b>Interview:</b> “Dependency Injection improves loose coupling, testability, and maintainability.”</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q3. What are @Component, @Service and @Repository?</div><div class="answer">
+<ul><li><code>@Component</code> — general Spring-managed component</li><li><code>@Service</code> — service/business layer</li><li><code>@Repository</code> — data-access layer</li></ul>
+</div></div>
+
+<div class="q"><div class="qhead">Q4. Explain a typical Spring Boot request flow.</div><div class="answer">
+<pre><code>Client
+  ↓
+Controller
+  ↓
+Service
+  ↓
+Repository
+  ↓
+Database</code></pre>
+<p>Controller handles HTTP concerns, Service handles business logic, Repository handles persistence.</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q5. What is @Transactional?</div><div class="answer">
+<p>It defines a transaction boundary. Successful work can be committed; when a transaction fails according to rollback rules, changes can be rolled back.</p>
+<p><b>Example:</b> bank transfer or a critical ride-state update where multiple database changes must remain consistent.</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q6. How do you handle exceptions globally?</div><div class="answer">
+<p>Use <code>@RestControllerAdvice</code> / exception handlers to return consistent API error responses.</p>
+<pre><code>@RestControllerAdvice
+class GlobalExceptionHandler {
+    // @ExceptionHandler(...)
+}</code></pre>
+</div></div>
+
+<div class="q"><div class="qhead">Q7. What is an API Gateway?</div><div class="answer">
+<p>An API Gateway is a single entry point for clients. It can perform routing and cross-cutting concerns such as authentication, filtering and request management.</p>
+<p><b>Your CV:</b> You have hands-on experience with Spring Cloud Gateway.</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q8. What are the advantages and disadvantages of microservices?</div><div class="answer">
+<p><b>Advantages:</b> independent deployment, independent scaling, service isolation, business-domain separation.</p>
+<p><b>Disadvantages:</b> network failures, distributed data consistency, observability complexity, deployment complexity and service-to-service communication.</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q9. Why are you a good match for this Spring Boot role?</div><div class="answer">
+<p>“I have hands-on Spring Boot experience in financial and enterprise systems. I’ve also worked with Spring Cloud Gateway and microservices. In my previous role I combined Spring Boot with Kafka, MySQL and Spring Batch, while in my current role I use Spring Boot for enterprise applications and backend services.”</p>
+</div></div>
+</section>
+
+<section id="distributed">
+<h2>5. Distributed Systems</h2>
+<p class="sub">Core scenario: Driver A and Driver B try to accept Ride #123 at the same time.</p>
+
+<div class="q"><div class="qhead">Q1. Why can't synchronized alone solve the two-driver problem?</div><div class="answer">
+<p>Because <code>synchronized</code> coordinates threads within one JVM. In a distributed deployment:</p>
+<pre><code>Driver A → Server 1 / JVM 1
+Driver B → Server 2 / JVM 2</code></pre>
+<p>The JVMs do not share the same monitor. A shared distributed mechanism is needed.</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q2. What is a Distributed Lock?</div><div class="answer">
+<p>A distributed lock coordinates access to a shared resource across multiple application instances.</p>
+<pre><code>Driver A → Server 1 → Redis → acquire ride:123
+Driver B → Server 2 → Redis → lock unavailable</code></pre>
+<p><b>Interview:</b> “Because multiple instances can process the same ride concurrently, I could use a Redis-based distributed lock around the critical section.”</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q3. Is a Redis lock alone enough?</div><div class="answer">
+<p>No. Treat the database as the source of truth for the ride state. Validate the current state and use a transaction/conditional update.</p>
+<pre><code>UPDATE rides
+SET status = 'ACCEPTED', driver_id = ?
+WHERE id = ?
+  AND status = 'AVAILABLE';</code></pre>
+<p>If another request already accepted it, the second update affects zero rows.</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q4. What is Idempotency?</div><div class="answer">
+<p>Idempotency means retrying the same logical request does not create repeated business effects.</p>
+<pre><code>POST /rides/123/accept
+Idempotency-Key: abc123</code></pre>
+<p>First request processes and stores the result. A retry with the same key can return the stored result instead of performing the business operation again.</p>
+<p><b>Remember:</b> “Lock protects concurrent execution. Idempotency protects against duplicate/retry operations.”</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q5. What is Eventual Consistency?</div><div class="answer">
+<p>In a distributed system, different components may temporarily have different states. After events are propagated and processed, they converge to a consistent state.</p>
+<pre><code>Ride Service
+  ↓
+MySQL: ACCEPTED
+  ↓
+Kafka event
+  ↓
+Notification Service
+  ↓
+Notification sent later</code></pre>
+<p>Core ride assignment may need strong consistency, while notifications/analytics can often tolerate eventual consistency.</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q6. Full answer: two drivers accept the same ride</div><div class="answer">
+<p>“First, I would treat ride acceptance as a high-concurrency operation. Since multiple application instances may process the request, I could use a Redis-based distributed lock for the specific ride to prevent concurrent processing.</p>
+<p>Then I would check the ride status in the database and update it only if it is still AVAILABLE. I would use a transaction or conditional update so the database remains the final source of truth.</p>
+<p>I would also make the API idempotent, for example by using an idempotency key, so a client retry does not process the ride acceptance multiple times.</p>
+<p>After successful acceptance, I could publish an event through Kafka for asynchronous work such as notifications or analytics. Those downstream services can use eventual consistency where exact immediate consistency is not required.”</p>
+</div></div>
+</section>
+
+<section id="redis">
+<h2>6. Redis</h2>
+
+<div class="q"><div class="qhead">Q1. What is Redis commonly used for?</div><div class="answer"><p>Fast key-value storage, caching, sessions, counters, distributed coordination/locks, and other low-latency use cases.</p><p><b>Your CV:</b> Redis-backed WebSocket updates for live bets and wallet balances.</p></div></div>
+
+<div class="q"><div class="qhead">Q2. Explain Cache-Aside.</div><div class="answer">
+<pre><code>Application
+   ↓
+Redis?
+ ┌─┴───────────────┐
+Hit                Miss
+ ↓                   ↓
+Return            MySQL
+                      ↓
+                 Save Redis
+                      ↓
+                   Return</code></pre>
+</div></div>
+
+<div class="q"><div class="qhead">Q3. What is cache invalidation?</div><div class="answer"><p>When the underlying data changes, cached data may become stale. The application needs a strategy to invalidate, update, or expire the relevant cache.</p></div></div>
+
+<div class="q"><div class="qhead">Q4. What are cache penetration, breakdown and avalanche?</div><div class="answer">
+<ul>
+<li><b>Penetration:</b> requests repeatedly query keys that don't exist, potentially hitting the database.</li>
+<li><b>Breakdown:</b> a very popular key expires and many requests hit the database at once.</li>
+<li><b>Avalanche:</b> many cache keys expire together, causing a large database load spike.</li>
+</ul>
+</div></div>
+
+<div class="q"><div class="qhead">Q5. How would you describe your Redis experience honestly?</div><div class="answer"><p>“I have hands-on Redis experience from a project where Redis was used with WebSocket for real-time updates of live bets and wallet balances. My production experience with Redis distributed locks is more limited, but I understand the distributed-lock concept and how it could be applied to a high-concurrency ride system.”</p></div></div>
+</section>
+
+<section id="kafka">
+<h2>7. Kafka</h2>
+
+<div class="q"><div class="qhead">Q1. Why use Kafka?</div><div class="answer"><p>Kafka supports asynchronous, event-driven communication and decouples producers from consumers. It can scale message processing and helps prevent one slow downstream service from blocking the entire business flow.</p><p><b>Your CV:</b> You used Kafka in a financial/accounting system and implemented event-driven architecture.</p></div></div>
+
+<div class="q"><div class="qhead">Q2. Explain Topic, Partition, Producer, Consumer and Consumer Group.</div><div class="answer">
+<pre><code>Producer
+   ↓
+Topic
+ ├── Partition 0 → Consumer A
+ ├── Partition 1 → Consumer B
+ └── Partition 2 → Consumer C
+
+Consumer Group:
+Each partition is consumed by one consumer
+within that group at a time.</code></pre>
+<ul><li><b>Producer:</b> publishes messages.</li><li><b>Topic:</b> logical stream/category of messages.</li><li><b>Partition:</b> ordered log segment that enables parallelism.</li><li><b>Consumer:</b> reads messages.</li><li><b>Consumer Group:</b> group of consumers sharing partitions for parallel processing.</li></ul>
+</div></div>
+
+<div class="q"><div class="qhead">Q3. What is an Offset?</div><div class="answer"><p>An offset identifies a message position within a Kafka partition. Consumers track progress using offsets.</p></div></div>
+
+<div class="q"><div class="qhead">Q4. What if a Kafka message is processed twice?</div><div class="answer"><p>Design the consumer operation to be idempotent. For example, store a unique event ID or business operation ID and reject/ignore a duplicate that was already successfully processed.</p><p><b>Interview:</b> “I would not assume every message is processed exactly once. I would make the business operation idempotent and handle duplicates safely.”</p></div></div>
+
+<div class="q"><div class="qhead">Q5. What is at-least-once delivery?</div><div class="answer"><p>The message can be delivered more than once, so consumers must tolerate duplicates. It is often a practical reliability model for business systems.</p></div></div>
+
+<div class="q"><div class="qhead">Q6. How would Kafka fit a ride-hailing system?</div><div class="answer">
+<pre><code>Order Service
+   ↓ publish RideAccepted
+Kafka Topic
+   ├── Notification Service
+   ├── Analytics Service
+   └── Other downstream services</code></pre>
+<p>Core ride state is persisted in the database; Kafka handles asynchronous downstream work.</p>
+</div></div>
+</section>
+
+<section id="mysql">
+<h2>8. MySQL &amp; Database</h2>
+
+<div class="q"><div class="qhead">Q1. What is an index?</div><div class="answer"><p>An index is a data structure that helps the database find rows more efficiently for suitable queries. It can improve reads but adds storage and write/update overhead.</p></div></div>
+
+<div class="q"><div class="qhead">Q2. How do you investigate a slow query?</div><div class="answer">
+<ol><li>Look at the query and filters.</li><li>Use <code>EXPLAIN</code> to inspect the execution plan.</li><li>Check whether useful indexes exist.</li><li>Review joins, selected columns, row counts and filtering.</li><li>Consider a composite/covering index where appropriate.</li><li>Measure again after the change.</li></ol>
+<pre><code>EXPLAIN SELECT *
+FROM orders
+WHERE user_id = ?
+  AND status = ?;</code></pre>
+</div></div>
+
+<div class="q"><div class="qhead">Q3. What is a composite index?</div><div class="answer"><p>An index over multiple columns, such as <code>(user_id, status)</code>. Column order matters because the database optimizer can use the index according to its access pattern and index-prefix rules.</p></div></div>
+
+<div class="q"><div class="qhead">Q4. What is a transaction?</div><div class="answer"><p>A transaction groups database operations into a unit with properties commonly described by ACID: Atomicity, Consistency, Isolation and Durability.</p></div></div>
+
+<div class="q"><div class="qhead">Q5. What is read/write splitting?</div><div class="answer">
+<pre><code>Application
+   ├── WRITE → Primary
+   └── READ  → Replica</code></pre>
+<p>It can increase read capacity, but replication lag means a recent write may not be immediately visible on a replica.</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q6. What is replication lag?</div><div class="answer"><p>When a replica has not yet applied a recent update from the primary. A user may write data and immediately read from a lagging replica, seeing stale data.</p></div></div>
+
+<div class="q"><div class="qhead">Q7. What is database sharding?</div><div class="answer"><p>Splitting data across multiple database nodes based on a sharding key to distribute storage and workload. Choosing a good key is critical to avoid hotspots and difficult cross-shard queries.</p><p><b>Honesty for you:</b> Your CV does not explicitly claim production sharding experience, so describe it as knowledge unless you have real project experience.</p></div></div>
+</section>
+
+<section id="nosql">
+<h2>9. NoSQL / MongoDB</h2>
+
+<div class="q"><div class="qhead">Q1. MySQL vs NoSQL?</div><div class="answer">
+<table style="width:100%;border-collapse:collapse">
+<tr><th style="border:1px solid #ddd;padding:8px;text-align:left">MySQL</th><th style="border:1px solid #ddd;padding:8px;text-align:left">NoSQL</th></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">Relational tables</td><td style="border:1px solid #ddd;padding:8px">Document/key-value/wide-column/graph models</td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">Strong relational model and SQL</td><td style="border:1px solid #ddd;padding:8px">Often flexible data models</td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">Excellent for transactional relational data</td><td style="border:1px solid #ddd;padding:8px">Useful for workloads needing particular scalability/flexibility patterns</td></tr>
+</table>
+<p><b>Answer:</b> “The choice depends on the data model, consistency requirements, access patterns, and scalability requirements. NoSQL is not automatically better or faster.”</p>
+</div></div>
+
+<div class="q"><div class="qhead">Q2. What is MongoDB?</div><div class="answer"><p>MongoDB is a document-oriented NoSQL database. Data is stored as documents in collections, and it supports indexes and aggregation queries.</p></div></div>
+
+<div class="q"><div class="qhead">Q3. How should you answer about your MongoDB experience?</div><div class="answer"><p>“MongoDB is included in my technical skill set and I understand the document model, indexing and aggregation concepts. Most of my production database experience, however, has been with Oracle, PostgreSQL and MySQL, so my hands-on production MongoDB experience is more limited.”</p></div></div>
+</section>
+
+<section id="docker">
+<h2>10. Docker &amp; Kubernetes</h2>
+
+<div class="q"><div class="qhead">Q1. What is Docker?</div><div class="answer"><p>Docker packages an application and its dependencies into a container image so it can run consistently across environments.</p></div></div>
+
+<div class="q"><div class="qhead">Q2. What is Kubernetes?</div><div class="answer"><p>Kubernetes is a container orchestration platform for deploying, scaling and managing containerized workloads.</p><p>Know these terms: Pod, Deployment, Service, Replica, ConfigMap, Secret, health checks, scaling.</p></div></div>
+
+<div class="q"><div class="qhead">Q3. Have you used Kubernetes?</div><div class="answer"><p>“I have hands-on experience with Docker and cloud deployment, mainly on AWS. My Kubernetes experience is more limited, but I understand core concepts such as Pods, Deployments, Services, replicas and scaling, and I’m continuing to improve my Kubernetes knowledge.”</p></div></div>
+
+<div class="q"><div class="qhead">Q4. What is a Pod?</div><div class="answer"><p>A Pod is the basic deployable unit in Kubernetes. It contains one or more containers that share networking and storage context.</p></div></div>
+</section>
+
+<section id="system">
+<h2>11. System Design — Ride-Hailing Platform</h2>
+<p class="sub">Use this structure if they ask you to design a high-concurrency ride/order system.</p>
+
+<pre><code>                         Client
+                            ↓
+                       API Gateway
+                            ↓
+             ┌──────────────┼──────────────┐
+             ↓              ↓              ↓
+          User           Order          Payment
+         Service         Service         Service
+                            ↓
+                  ┌─────────┴─────────┐
+                  ↓                   ↓
+                Redis               MySQL
+             cache/lock        source of truth
+                  │
+                  ↓
+             Kafka events
+                  ↓
+       ┌──────────┼──────────┐
+       ↓          ↓          ↓
+ Notification  Analytics   Other services</code></pre>
+
+<div class="q"><div class="qhead">Q1. How would you design ride acceptance?</div><div class="answer">
+<ol>
+<li>Authenticate the driver.</li>
+<li>Validate the ride and driver eligibility.</li>
+<li>Acquire a distributed lock for the ride, if needed.</li>
+<li>Check that the ride is still AVAILABLE.</li>
+<li>Use a database transaction/conditional update to change it to ACCEPTED.</li>
+<li>Release the lock.</li>
+<li>Publish a RideAccepted event to Kafka.</li>
+<li>Downstream consumers handle notifications/analytics asynchronously.</li>
+<li>Use idempotency for retries and duplicate requests.</li>
+</ol>
+</div></div>
+
+<div class="q"><div class="qhead">Q2. Where would you use Redis?</div><div class="answer"><p>For low-latency cache data and potentially a distributed coordination mechanism such as a lock. The database remains the source of truth for critical ride state.</p></div></div>
+
+<div class="q"><div class="qhead">Q3. Where would you use Kafka?</div><div class="answer"><p>For asynchronous events such as RideAccepted, notification events, analytics events and other decoupled downstream processing.</p></div></div>
+
+<div class="q"><div class="qhead">Q4. How would you prevent duplicate booking?</div><div class="answer"><p>Combine concurrency control with database correctness: distributed lock where appropriate, conditional state transition/transaction in the database, and idempotency for repeated client requests.</p></div></div>
+</section>
+
+<section id="behavioral">
+<h2>12. Behavioral Questions</h2>
+
+<div class="q"><div class="qhead">Q1. Why do you want this position?</div><div class="answer"><p>“I’m interested because the role focuses strongly on Java backend development, high-concurrency systems, microservices, Kafka, Redis and database performance. I already have hands-on experience with Java, Spring Boot, Kafka, MySQL, multithreading and microservices, and I want to deepen my experience in distributed and high-scale backend systems.”</p></div></div>
+
+<div class="q"><div class="qhead">Q2. Tell me about a difficult production/problem-solving experience.</div><div class="answer"><p><b>Use your real 40% story:</b></p><p><b>Situation:</b> Report generation was taking too long.</p><p><b>Task:</b> Improve processing time while preserving business logic.</p><p><b>Action:</b> Analyzed the batch flow and introduced multithreading for independent processing tasks with Spring Batch.</p><p><b>Result:</b> Report generation time was reduced by around 40%.</p></div></div>
+
+<div class="q"><div class="qhead">Q3. What is your biggest strength?</div><div class="answer"><p>“One of my strengths is that I can work across the application stack but have developed a strong backend focus. I enjoy understanding business requirements, designing APIs, working with databases and improving system performance.”</p></div></div>
+
+<div class="q"><div class="qhead">Q4. What is a weakness?</div><div class="answer"><p>“My hands-on Kubernetes experience is more limited compared with my Java and Spring Boot experience. I understand the core concepts and have been improving my knowledge because I want to become stronger in production-grade container orchestration.”</p></div></div>
+
+<div class="q"><div class="qhead">Q5. What do you do when you don't know an answer?</div><div class="answer"><p>“I would be honest about what I know and what I haven't used directly. Then I would explain the related concepts I do understand and describe how I would investigate or learn the missing part.”</p></div></div>
+
+<div class="q"><div class="qhead">Q6. Why should we hire you?</div><div class="answer"><p>“My experience matches several important parts of this role: Java, Spring Boot, Kafka, MySQL, multithreading and microservices. I also have experience improving system performance and working on enterprise applications. I’m particularly motivated to grow further in high-concurrency and distributed backend systems.”</p></div></div>
+</section>
+
+<section id="cv">
+<h2>13. CV-Based Questions</h2>
+
+<div class="q"><div class="qhead">Q1. Tell me about your financial/accounting system.</div><div class="answer"><p>“I worked on a financial and accounting system using Mifos X, Spring Boot, Angular 16, Kafka and MySQL. I worked on backend development and event-driven architecture, and I also optimized Spring Batch processing with multithreading, reducing report generation time by 40%.”</p></div></div>
+
+<div class="q"><div class="qhead">Q2. Tell me about your current role.</div><div class="answer"><p>“Currently I work as a Full-Stack Developer on enterprise applications. I’ve developed an innovation competition platform, backend communication microservices, a property management platform and a job portal using technologies including Java Spring Boot, Spring Cloud Gateway, Oracle and PostgreSQL. I’ve also worked with AWS and deployment tools.”</p></div></div>
+
+<div class="q"><div class="qhead">Q3. Tell me about your Prediction Market project.</div><div class="answer"><p>“I worked on a microservice-based prediction market platform using Go, Spring Cloud Gateway, React and PostgreSQL. The services covered users, markets, betting, wallets, P2P and transactions. We also used Redis-backed WebSocket updates for live bets and wallet balances.”</p></div></div>
+
+<div class="q"><div class="qhead">Q4. What is your MyBatis experience?</div><div class="answer"><p>“I have hands-on experience developing and maintaining REST APIs using Java, MyBatis and Oracle. MyBatis is useful when I need more direct control over SQL and query behavior.”</p></div></div>
+
+<div class="q"><div class="qhead">Q5. What technologies are you strongest in?</div><div class="answer"><p>“For backend development, I would say Java, Spring Boot, REST APIs, microservices, Kafka and SQL/database integration are among my strongest areas. I also have experience with Spring Batch, MyBatis, AWS and Docker.”</p></div></div>
+
+<div class="q"><div class="qhead">Q6. Your CV says Full-Stack Developer. Why a Backend Engineer role?</div><div class="answer"><p>“Although my current title is Full-Stack Developer, a significant part of my recent work has been backend-focused: Spring Boot services, microservices, API development, databases, Kafka and performance optimization. I enjoy backend architecture and solving scalability and concurrency problems, so I want to focus more deeply on backend engineering.”</p></div></div>
+</section>
+
+<section id="rapid">
+<h2>14. Rapid Revision — Last 15 Minutes</h2>
+<p class="sub">Read these short answers immediately before the interview.</p>
+
+<div class="grid">
+<div class="mini"><b>Thread</b>Lightweight unit of execution within a process.</div>
+<div class="mini"><b>Thread Pool</b>Reusable threads for controlled concurrent execution.</div>
+<div class="mini"><b>synchronized</b>Mutual exclusion around a monitor.</div>
+<div class="mini"><b>volatile</b>Visibility, not atomicity.</div>
+<div class="mini"><b>Race Condition</b>Concurrent shared-data access where timing changes the result.</div>
+<div class="mini"><b>Deadlock</b>Threads wait forever for each other's locks.</div>
+<div class="mini"><b>DI</b>Spring provides dependencies instead of classes creating them.</div>
+<div class="mini"><b>@Transactional</b>Defines a transaction boundary.</div>
+<div class="mini"><b>Redis</b>Low-latency key-value store; cache/coordination use cases.</div>
+<div class="mini"><b>Distributed Lock</b>Coordinates a critical operation across instances.</div>
+<div class="mini"><b>Idempotency</b>Retries do not create repeated business effects.</div>
+<div class="mini"><b>Kafka</b>Asynchronous event/messaging platform for decoupled processing.</div>
+<div class="mini"><b>Partition</b>Ordered Kafka log segment enabling parallelism.</div>
+<div class="mini"><b>Consumer Group</b>Consumers share partitions within a group.</div>
+<div class="mini"><b>Offset</b>Message position in a partition.</div>
+<div class="mini"><b>Index</b>Speeds suitable queries at storage/write cost.</div>
+<div class="mini"><b>Read/Write Split</b>Writes to primary, reads from replicas; watch replication lag.</div>
+<div class="mini"><b>Eventual Consistency</b>Temporary divergence followed by convergence.</div>
+<div class="mini"><b>Docker</b>Packages app + dependencies into containers.</div>
+<div class="mini"><b>Kubernetes</b>Orchestrates containerized workloads.</div>
+</div>
+
+<h3>Top 12 questions to say out loud</h3>
+<ol>
+<li>Tell me about yourself.</li>
+<li>Tell me about your Java experience.</li>
+<li>Explain your multithreading experience and the 40% improvement.</li>
+<li>What is the difference between synchronized and volatile?</li>
+<li>What is a race condition?</li>
+<li>How would you prevent two drivers from accepting the same ride?</li>
+<li>What is a Redis distributed lock?</li>
+<li>What is idempotency?</li>
+<li>Why use Kafka?</li>
+<li>What happens if a Kafka message is processed twice?</li>
+<li>How would you optimize a slow MySQL query?</li>
+<li>Why are you interested in this position?</li>
+</ol>
+
+<div class="note good"><b>Final interview rule:</b> If you have hands-on experience, say “I implemented/used...”. If you only know the concept, say “I understand the concept...” or “My hands-on experience is limited...”. Never invent production experience.</div>
+</section>
+
+</main>
+</div>
+
+<footer>Use the search box to find any topic or question. Tip: press Ctrl+F only if you want the browser's search; the box above searches the guide itself.</footer>
+
+<script>
+const search = document.getElementById('search');
+const sections = [...document.querySelectorAll('main section')];
+const count = document.createElement('span');
+count.id = 'count';
+const toolbar = document.createElement('div');
+toolbar.className = 'toolbar';
+const hint = document.createElement('span');
+hint.textContent = 'Search results are highlighted below.';
+toolbar.appendChild(hint);
+toolbar.appendChild(count);
+document.querySelector('main').prepend(toolbar);
+
+function escapeRegExp(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+
+function restore(el){
+  if(!el.dataset.original) el.dataset.original = el.innerHTML;
+  el.innerHTML = el.dataset.original;
+}
+
+function highlight(el, term){
+  restore(el);
+  if(!term) return;
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
+    acceptNode(node){
+      if(node.parentElement.closest('script,style')) return NodeFilter.FILTER_REJECT;
+      return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  const nodes=[];
+  while(walker.nextNode()) nodes.push(walker.currentNode);
+  const re=new RegExp(escapeRegExp(term),'gi');
+  nodes.forEach(node=>{
+    const text=node.nodeValue;
+    if(!re.test(text)) return;
+    re.lastIndex=0;
+    const frag=document.createDocumentFragment();
+    let last=0, m;
+    while((m=re.exec(text))){
+      frag.appendChild(document.createTextNode(text.slice(last,m.index)));
+      const mark=document.createElement('mark');
+      mark.textContent=m[0];
+      frag.appendChild(mark);
+      last=m.index+m[0].length;
+    }
+    frag.appendChild(document.createTextNode(text.slice(last)));
+    node.parentNode.replaceChild(frag,node);
+  });
+}
+
+search.addEventListener('input', ()=>{
+  const term=search.value.trim().toLowerCase();
+  let matched=0;
+  sections.forEach(sec=>{
+    restore(sec);
+    if(!term){
+      sec.classList.remove('hidden');
+      return;
+    }
+    const text=sec.textContent.toLowerCase();
+    const ok=text.includes(term);
+    sec.classList.toggle('hidden',!ok);
+    if(ok){matched++; highlight(sec,term);}
+  });
+  count.textContent = term ? `${matched} section${matched===1?'':'s'} found` : '';
+});
+
+document.querySelectorAll('aside a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    search.value='';
+    sections.forEach(s=>{s.classList.remove('hidden'); restore(s);});
+    count.textContent='';
+  });
+});
+</script>
+</body>
+</html>
