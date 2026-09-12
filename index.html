@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Java Backend Engineer — Interview Mock Guide</title>
 <style>
   :root{
@@ -18,7 +19,10 @@
   .title{flex:1}
   .title h1{font-size:20px;margin:0 0 2px}
   .title p{margin:0;color:var(--muted);font-size:13px}
-  .search{width:min(430px,45vw);padding:11px 14px;border:1px solid #cfd5df;border-radius:10px;font-size:15px;outline:none}
+  .controls{display:flex;gap:4px;background:#eef2f7;padding:4px;border-radius:10px}
+  .lang{border:0;background:transparent;padding:7px 10px;border-radius:7px;font-size:13px;font-weight:700;color:#667085}
+  .lang.active{background:#fff;color:#2563eb;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  .search{width:min(390px,38vw);padding:11px 14px;border:1px solid #cfd5df;border-radius:10px;font-size:15px;outline:none}
   .search:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
   .layout{max-width:1200px;margin:22px auto;display:grid;grid-template-columns:235px 1fr;gap:22px;padding:0 20px}
   aside{position:sticky;top:88px;height:max-content;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
@@ -59,6 +63,7 @@
   @media(max-width:850px){
     .layout{grid-template-columns:1fr}
     aside{position:static}
+    .controls{margin-left:auto}
     .search{width:100%}
     .top{flex-wrap:wrap}
     .title{flex-basis:100%}
@@ -68,60 +73,64 @@
 </head>
 <body>
 <header>
-  <div class="top">
-    <div class="title">
-      <h1>Java Backend Engineer — Interview Mock Guide</h1>
-      <p>Built around your CV + the Ride-Hailing Platform R&amp;D JD</p>
-    </div>
-    <input id="search" class="search" type="search" placeholder="Search questions, Java, Kafka, Redis, MySQL..." aria-label="Search the whole page">
-  </div>
+<div class="top">
+<div class="title">
+<h1>Java Backend Engineer — Interview Mock Guide</h1>
+<p>Built around your CV + the Ride-Hailing Platform R&amp;D JD</p>
+</div>
+<div class="controls">
+<button class="lang active" id="langEn" type="button">English</button>
+<button class="lang" id="langMm" type="button">မြန်မာ</button>
+</div>
+<input aria-label="Search the whole page" class="search" id="search" placeholder="Search questions, Java, Kafka, Redis, MySQL..." type="search"/>
+</div>
 </header>
-
 <div class="layout">
 <aside>
-  <h3>Quick navigation</h3>
-  <a href="#strategy">1. Strategy</a>
-  <a href="#intro">2. Tell me about yourself</a>
-  <a href="#java">3. Java &amp; Concurrency</a>
-  <a href="#spring">4. Spring Boot</a>
-  <a href="#distributed">5. Distributed Systems</a>
-  <a href="#redis">6. Redis</a>
-  <a href="#kafka">7. Kafka</a>
-  <a href="#mysql">8. MySQL</a>
-  <a href="#nosql">9. NoSQL / MongoDB</a>
-  <a href="#docker">10. Docker / Kubernetes</a>
-  <a href="#system">11. System Design</a>
-  <a href="#behavioral">12. Behavioral</a>
-  <a href="#cv">13. CV Questions</a>
-  <a href="#rapid">14. Rapid Revision</a>
+<h3 data-mm="အမြန်သွားရန်">Quick navigation</h3>
+<a data-mm="၁။ Strategy" href="#strategy">1. Strategy</a>
+<a data-mm="၂။ Tell me about yourself" href="#intro">2. Tell me about yourself</a>
+<a data-mm="၃။ Java &amp; Concurrency" href="#java">3. Java &amp; Concurrency</a>
+<a data-mm="၄။ Spring Boot" href="#spring">4. Spring Boot</a>
+<a data-mm="၅။ Distributed Systems" href="#distributed">5. Distributed Systems</a>
+<a data-mm="၆။ Redis" href="#redis">6. Redis</a>
+<a data-mm="၇။ Kafka" href="#kafka">7. Kafka</a>
+<a data-mm="၈။ MySQL" href="#mysql">8. MySQL</a>
+<a data-mm="၉။ NoSQL / MongoDB" href="#nosql">9. NoSQL / MongoDB</a>
+<a data-mm="၁၀။ Docker / Kubernetes" href="#docker">10. Docker / Kubernetes</a>
+<a data-mm="၁၁။ System Design" href="#system">11. System Design</a>
+<a data-mm="၁၂။ Behavioral" href="#behavioral">12. Behavioral</a>
+<a data-mm="၁၃။ CV Questions" href="#cv">13. CV Questions</a>
+<a data-mm="၁၄။ Rapid Revision" href="#rapid">14. Rapid Revision</a>
 </aside>
-
 <main id="content">
-
 <section id="strategy">
-<h2>1. Tonight's Strategy</h2>
-<p class="sub">Do not try to become an expert in every technology. Your goal is to explain your real experience clearly and understand the distributed-system concepts behind this JD.</p>
+<h2 data-mm="၁။ ဒီညအတွက် Preparation Strategy">1. Tonight's Strategy</h2>
+<p class="sub" data-mm="Technology အားလုံးကို ဒီညတစ်ညတည်းနဲ့ Expert ဖြစ်အောင် လေ့လာဖို့မလိုပါဘူး။ ကိုယ်တကယ်လုပ်ဖူးတဲ့ Experience ကို ရှင်းရှင်းလင်းလင်း ပြောနိုင်ဖို့နဲ့ ဒီ JD ထဲက Distributed-System Concept တွေကို နားလည်ဖို့က အဓိကပါ။">Do not try to become an expert in every technology. Your goal is to explain your real experience clearly and understand the distributed-system concepts behind this JD.</p>
 <div class="priority">
-  <span class="tag">★★★★★ Java + Concurrency</span>
-  <span class="tag">★★★★★ Spring Boot</span>
-  <span class="tag">★★★★★ Distributed Systems</span>
-  <span class="tag">★★★★★ Redis</span>
-  <span class="tag">★★★★★ Kafka</span>
-  <span class="tag">★★★★ MySQL</span>
-  <span class="tag">★★★ MongoDB</span>
-  <span class="tag">★★★ Docker/Kubernetes</span>
+<span class="tag">★★★★★ Java + Concurrency</span>
+<span class="tag">★★★★★ Spring Boot</span>
+<span class="tag">★★★★★ Distributed Systems</span>
+<span class="tag">★★★★★ Redis</span>
+<span class="tag">★★★★★ Kafka</span>
+<span class="tag">★★★★ MySQL</span>
+<span class="tag">★★★ MongoDB</span>
+<span class="tag">★★★ Docker/Kubernetes</span>
 </div>
 <div class="note"><b>Your strongest CV story:</b> In your previous Mid-Level Java Developer role, you used Spring Boot, Kafka, MySQL and Spring Batch, and optimized batch processing with multithreading, reducing report generation time by 40%.</div>
 <div class="note warn"><b>Do not overclaim:</b> Your CV does not explicitly show production experience with Kubernetes, Redis distributed locks, or database sharding. Say you understand the concepts if that is true, and distinguish that from hands-on production experience.</div>
 </section>
-
 <section id="intro">
-<h2>2. “Tell me about yourself”</h2>
-<p class="sub">Target: 60–90 seconds. Focus on backend experience rather than listing every frontend technology.</p>
+<h2 data-mm="၂။ “Tell me about yourself”">2. “Tell me about yourself”</h2>
+<p class="sub" data-mm="၆၀–၉၀ စက္ကန့်လောက်ပဲ ပြောပါ။ Frontend Technology အားလုံးကို စာရင်းပြုစုမပြောဘဲ Backend Experience ကို အဓိကထားပါ။">Target: 60–90 seconds. Focus on backend experience rather than listing every frontend technology.</p>
 <div class="q">
-<div class="qhead">Interviewer: “Could you please introduce yourself and tell me about your background?”</div>
-<div class="answer">
-<p><b>Suggested answer:</b></p>
+<div class="qhead" data-mm="Interviewer: “ကိုယ့်အကြောင်းနဲ့ ကိုယ့်ရဲ့ အလုပ်အတွေ့အကြုံနောက်ခံကို မိတ်ဆက်ပေးပါလား?”">Interviewer: “Could you please introduce yourself and tell me about your background?”</div>
+<div class="answer" data-mm="&lt;p&gt;&lt;b&gt;ဖြေဆိုရန်:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;“ဟုတ်ကဲ့။ ကျွန်တော့်နာမည်က Thant Htoo Aung ဖြစ်ပြီး Software Development ပိုင်းမှာ အတွေ့အကြုံ ၃ နှစ်ကျော်ရှိပါတယ်။ အထူးသဖြင့် Java နဲ့ Backend Development ကို အဓိကလုပ်ကိုင်ခဲ့ပါတယ်။&lt;/p&gt;
+&lt;p&gt;Career အစမှာ Java, MyBatis, Oracle နဲ့ REST API တွေကို အသုံးပြုပြီး အလုပ်လုပ်ခဲ့ပါတယ်။ အဲဒီနောက် Mid-Level Java Developer အဖြစ် Financial and Accounting System တစ်ခုမှာ Spring Boot, Kafka, MySQL နဲ့ Spring Batch တွေကို အသုံးပြုခဲ့ပါတယ်။ အဓိက Achievement တစ်ခုက Multithreading သုံးပြီး Batch Processing ကို Optimize လုပ်ခဲ့တာဖြစ်ပြီး Report Generation Time ကို ၄၀% လောက် လျှော့ချနိုင်ခဲ့ပါတယ်။&lt;/p&gt;
+&lt;p&gt;လက်ရှိမှာ Full-Stack Developer အဖြစ် အလုပ်လုပ်နေပါတယ်။ ဒါပေမယ့် Backend Development နဲ့ Microservices ကို အဓိက Focus လုပ်နေပါတယ်။ Java Spring Boot, Spring Cloud Gateway, Oracle, PostgreSQL နဲ့ AWS တွေကို အသုံးပြုပြီး Enterprise Application နဲ့ Microservice-based Project တွေမှာ အလုပ်လုပ်ခဲ့ပါတယ်။&lt;/p&gt;
+&lt;p&gt;ဒီ Position ကို စိတ်ဝင်စားတာက Java Backend Development, High-Concurrency System, Microservices, Kafka, Redis နဲ့ Database Performance တွေကို အဓိကထားတာကြောင့် ကျွန်တော့် Experience နဲ့ ကိုက်ညီပါတယ်။ Distributed နဲ့ High-Scale Backend System ပိုင်းမှာလည်း ပိုမိုနက်ရှိုင်းတဲ့ Experience ရချင်ပါတယ်။”&lt;/p&gt;">
+<p data-mm="ဖြေဆိုရန် အကြံပြုချက်:"><b>Suggested answer:</b></p>
 <p>“Sure. My name is Thant Htoo Aung, and I have over three years of experience in software development, with a strong focus on Java and backend development.</p>
 <p>I started my career working with Java, MyBatis, Oracle, and REST APIs. Then, in my previous role as a Mid-Level Java Developer, I worked on a financial and accounting system using Spring Boot, Kafka, MySQL, and Spring Batch. One of my main achievements was optimizing batch processing with multithreading, which reduced report generation time by around 40%.</p>
 <p>Currently, I’m working as a Full-Stack Developer, but I’ve been focusing heavily on backend development and microservices. I’ve worked with Java Spring Boot, Spring Cloud Gateway, Oracle, PostgreSQL, and AWS, and I’ve also worked on several enterprise and microservice-based projects.</p>
@@ -130,54 +139,63 @@
 </div>
 <div class="note good"><b>Memory structure:</b> 3+ years → Java/MyBatis/Oracle → Spring Boot/Kafka/MySQL → multithreading/40% improvement → current microservices → why this role.</div>
 </section>
-
 <section id="java">
-<h2>3. Java &amp; Concurrency</h2>
-
-<div class="q"><div class="qhead">Q1. What is a Thread?</div><div class="answer">
-<p>A thread is a lightweight unit of execution within a process. Multiple threads can execute tasks concurrently within the same application.</p>
-<p><b>Interview:</b> “A thread is a lightweight unit of execution within a process. Multiple threads can execute tasks concurrently and share process resources.”</p>
+<h2 data-mm="၃။ Java &amp; Concurrency">3. Java &amp; Concurrency</h2>
+<div class="q"><div class="qhead" data-mm="Q1. Thread ဆိုတာ ဘာလဲ?">Q1. What is a Thread?</div><div class="answer" data-mm="&lt;p&gt;Thread ဆိုတာ Process တစ်ခုအတွင်းမှာ Execute လုပ်နေတဲ့ Lightweight Unit of Execution တစ်ခုပါ။ Application တစ်ခုတည်းအတွင်းမှာ Thread အများကြီးက Task တွေကို Concurrent အနေနဲ့ Execute လုပ်နိုင်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Interview:&lt;/b&gt; “Thread ဆိုတာ Process တစ်ခုအတွင်းက Lightweight Unit of Execution ဖြစ်ပါတယ်။ Thread အများကြီးက Task တွေကို Concurrent အနေနဲ့ Execute လုပ်နိုင်ပြီး Process Resource တချို့ကိုလည်း Share လုပ်နိုင်ပါတယ်။”&lt;/p&gt;">
+<p data-mm="Thread ဆိုတာ process တစ်ခုအတွင်းမှာ execution လုပ်တဲ့ lightweight unit တစ်ခုပါ။ Application တစ်ခုတည်းထဲမှာ thread အများကြီးက task တွေကို concurrent အနေနဲ့ execute လုပ်နိုင်ပါတယ်။">A thread is a lightweight unit of execution within a process. Multiple threads can execute tasks concurrently within the same application.</p>
+<p data-mm="Interview မှာ — “Thread ဆိုတာ process တစ်ခုအတွင်းက lightweight unit of execution ဖြစ်ပြီး thread အများကြီးက task တွေကို concurrent execute လုပ်နိုင်ပါတယ်။ Process ရဲ့ resource တချို့ကိုလည်း share လုပ်နိုင်ပါတယ်။”"><b>Interview:</b> “A thread is a lightweight unit of execution within a process. Multiple threads can execute tasks concurrently and share process resources.”</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q2. What is a Thread Pool and why use it?</div><div class="answer">
-<p>A thread pool manages reusable threads. Instead of creating a new thread for every task, tasks are submitted to the pool.</p>
-<ul><li>Reuses threads</li><li>Reduces thread-creation overhead</li><li>Controls concurrency and resource usage</li></ul>
+<div class="q"><div class="qhead" data-mm="Q2. Thread Pool ဆိုတာ ဘာလဲ၊ ဘာကြောင့်သုံးတာလဲ?">Q2. What is a Thread Pool and why use it?</div><div class="answer" data-mm="&lt;p&gt;Thread Pool ဆိုတာ ပြန်လည်အသုံးပြုနိုင်တဲ့ Thread တွေကို စီမံပေးတဲ့ Pool ဖြစ်ပါတယ်။ Task တစ်ခုစီအတွက် Thread အသစ်ဖန်တီးမယ့်အစား Task ကို Pool ထဲပို့ပြီး ရှိပြီးသား Thread တစ်ခုက Execute လုပ်ပါတယ်။&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Thread တွေကို ပြန်လည်အသုံးပြုနိုင်လို့ Overhead လျော့ပါတယ်။&lt;/li&gt;&lt;li&gt;Thread အသစ်ဖန်တီးရတဲ့ Cost ကို လျှော့ချနိုင်ပါတယ်။&lt;/li&gt;&lt;li&gt;တစ်ချိန်တည်း Run နေတဲ့ Concurrent Task အရေအတွက်နဲ့ Resource Usage ကို ထိန်းချုပ်နိုင်ပါတယ်။&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;&lt;b&gt;Interview:&lt;/b&gt; “Thread Pool က Reusable Thread တွေကို စီမံပြီး Task တွေကို ထိရောက်စွာ Execute လုပ်ပေးသလို Concurrent Task အရေအတွက်ကိုလည်း ထိန်းချုပ်နိုင်ပါတယ်။”&lt;/p&gt;">
+<p data-mm="Thread Pool ဆိုတာ ပြန်လည်အသုံးပြုနိုင်တဲ့ thread တွေကို စီမံပေးတဲ့ pool ပါ။ Task တစ်ခုစီအတွက် thread အသစ်ဖန်တီးမယ့်အစား task ကို pool ထဲပို့ပြီး available thread က execute လုပ်ပါတယ်။">A thread pool manages reusable threads. Instead of creating a new thread for every task, tasks are submitted to the pool.</p>
+<ul><li data-mm="Thread တွေကို ပြန်သုံးနိုင်တယ်">Reuses threads</li><li data-mm="Thread အသစ်ဖန်တီးရတဲ့ overhead လျော့တယ်">Reduces thread-creation overhead</li><li data-mm="Concurrency နဲ့ resource usage ကို ထိန်းချုပ်နိုင်တယ်">Controls concurrency and resource usage</li></ul>
 <pre><code>ExecutorService executor = Executors.newFixedThreadPool(10);
 executor.submit(() -&gt; {
     // task
 });</code></pre>
-<p><b>Interview:</b> “A thread pool manages reusable threads to execute tasks efficiently and control the number of concurrent tasks.”</p>
+<p data-mm="Interview မှာ — “Thread Pool က reusable threads တွေကို စီမံပြီး task တွေကို efficient ဖြစ်အောင် execute လုပ်ပေးသလို concurrent task အရေအတွက်ကိုလည်း ထိန်းချုပ်နိုင်ပါတယ်။”"><b>Interview:</b> “A thread pool manages reusable threads to execute tasks efficiently and control the number of concurrent tasks.”</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q3. What is synchronized?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q3. synchronized ဆိုတာ ဘာလဲ?">Q3. What is synchronized?</div><div class="answer" data-mm="&lt;p&gt;&lt;code&gt;synchronized&lt;/code&gt; က Monitor တစ်ခုအတွက် Mutual Exclusion ပေးပါတယ်။ Monitor တစ်ခုတည်းကို Lock အဖြစ် အသုံးပြုနေတဲ့ Synchronized Section ကို တစ်ချိန်တည်းမှာ Thread တစ်ခုကပဲ Execute လုပ်နိုင်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;အဓိကမှတ်ရန်:&lt;/b&gt; &lt;code&gt;synchronized&lt;/code&gt; က JVM တစ်ခုအတွင်းက Thread တွေကို Coordinate လုပ်တာပါ။ Server Instance အများကြားမှာ အသုံးပြုတဲ့ Distributed Lock မဟုတ်ပါဘူး။&lt;/p&gt;">
 <p><code>synchronized</code> provides mutual exclusion for a monitor. For the same monitor, only one thread can execute the synchronized section at a time.</p>
 <pre><code>synchronized void withdraw(int amount) {
     balance -= amount;
 }</code></pre>
 <p><b>Key point:</b> It coordinates threads inside the JVM. It is not a distributed lock across multiple server instances.</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q4. What is volatile?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q4. volatile ဆိုတာ ဘာလဲ?">Q4. What is volatile?</div><div class="answer" data-mm="&lt;p&gt;&lt;code&gt;volatile&lt;/code&gt; က Variable တစ်ခုကို Thread တစ်ခုက Write လုပ်ထားတဲ့ Value ကို အခြား Thread တွေက မြင်နိုင်ဖို့ Visibility ကို Guarantee ပေးပါတယ်။&lt;/p&gt;
+&lt;p&gt;ဒါပေမယ့် &lt;code&gt;count++&lt;/code&gt; လို Compound Operation ကို Atomic ဖြစ်အောင် မလုပ်ပေးပါဘူး။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;မှတ်ရန်:&lt;/b&gt; &lt;code&gt;volatile&lt;/code&gt; = Visibility ဖြစ်ပြီး Full Thread Safety မဟုတ်ပါဘူး။&lt;/p&gt;">
 <p><code>volatile</code> guarantees visibility of writes to a variable across threads. It does <b>not</b> make compound operations atomic.</p>
 <pre><code>volatile boolean running = true;</code></pre>
 <p><b>Remember:</b> <code>volatile</code> = visibility, not full thread safety.</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q5. synchronized vs Lock?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q5. synchronized နဲ့ Lock ဘာကွာလဲ?">Q5. synchronized vs Lock?</div><div class="answer" data-mm="&lt;p&gt;&lt;b&gt;synchronized:&lt;/b&gt; ရိုးရှင်းပြီး Java Language Level မှာ တိုက်ရိုက် Support လုပ်ပါတယ်။ Synchronized Block/Method ကနေ ထွက်တဲ့အခါ Lock ကို အလိုအလျောက် Release လုပ်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Lock / ReentrantLock:&lt;/b&gt; Lock ကို Explicit Control လုပ်နိုင်ပြီး &lt;code&gt;tryLock()&lt;/code&gt; လို Feature တွေရှိပါတယ်။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Interview:&lt;/b&gt; “ReentrantLock က synchronized ထက် ပိုပြီး Flexible Control ပေးပါတယ်။ ရိုးရှင်းတဲ့ Mutual Exclusion အတွက်တော့ synchronized က ပိုလွယ်ပါတယ်။”&lt;/p&gt;">
 <div class="grid">
 <div class="mini"><b>synchronized</b>Simple, language-level locking, automatic release when leaving the synchronized block/method.</div>
 <div class="mini"><b>Lock / ReentrantLock</b>Explicit lock management and features such as <code>tryLock()</code> and interruptible locking.</div>
 </div>
 <p><b>Interview:</b> “ReentrantLock gives more explicit and flexible control than synchronized, while synchronized is simpler for straightforward mutual exclusion.”</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q6. What is ConcurrentHashMap?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q6. ConcurrentHashMap ဆိုတာ ဘာလဲ?">Q6. What is ConcurrentHashMap?</div><div class="answer" data-mm="&lt;p&gt;ConcurrentHashMap က Concurrent Access အတွက် Design လုပ်ထားတဲ့ Thread-Safe Map Implementation ဖြစ်ပါတယ်။ Thread အများကြီးက Shared Map Data ကို တစ်ပြိုင်နက် Access/Update လုပ်ဖို့လိုတဲ့အခါ အသုံးပြုနိုင်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;Normal Map ကို Access လုပ်တိုင်း Lock လုပ်တာထက် Concurrent Access ကို ပိုကောင်းစွာ Handle လုပ်နိုင်ပါတယ်။&lt;/p&gt;">
 <p>It is a thread-safe Map implementation designed for concurrent access. It provides better concurrency than simply synchronizing every access to a normal map.</p>
 <p><b>Interview:</b> “I would use ConcurrentHashMap when multiple threads need to access and update shared map data concurrently.”</p>
 </div></div>
+<div class="q"><div class="qhead" data-mm="Q7. Race Condition ဆိုတာ ဘာလဲ?">Q7. What is a Race Condition?</div><div class="answer" data-mm="&lt;p&gt;Race Condition ဆိုတာ Thread အများကြီးက Shared Data ကို တစ်ပြိုင်နက် Access လုပ်တဲ့အခါ Result က ဘယ် Thread က ဘယ်အချိန် Execute လုပ်သလဲဆိုတဲ့ Timing ပေါ်မူတည်ပြီး ပြောင်းလဲနိုင်တဲ့ အခြေအနေပါ။&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int count = 0;
 
-<div class="q"><div class="qhead">Q7. What is a Race Condition?</div><div class="answer">
-<p>A race condition happens when multiple threads access shared data concurrently and the result depends on execution timing.</p>
+// Thread A and B both do:
+count++;
+
+// Expected: 2
+// Possible result: 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Problem အပေါ်မူတည်ပြီး Synchronization, Lock, Atomic Operation, Thread-Safe Collection, Database Control ဒါမှမဟုတ် Distributed Lock တွေကို အသုံးပြုနိုင်ပါတယ်။&lt;/p&gt;">
+<p data-mm="Race Condition ဆိုတာ thread အများကြီးက shared data ကို တစ်ချိန်တည်း access လုပ်တဲ့အခါ execution timing ပေါ်မူတည်ပြီး result မတည်ငြိမ်တာပါ။">A race condition happens when multiple threads access shared data concurrently and the result depends on execution timing.</p>
 <pre><code>int count = 0;
 
 // Thread A and B both do:
@@ -185,35 +203,36 @@ count++;
 
 // Expected: 2
 // Possible result: 1</code></pre>
-<p>Solutions include synchronization, locks, atomic operations, thread-safe collections, database controls, or distributed locks depending on the problem.</p>
+<p data-mm="ဖြေရှင်းနည်းတွေက problem အပေါ်မူတည်ပြီး synchronization, locks, atomic operations, thread-safe collections, database controls ဒါမှမဟုတ် distributed locks ဖြစ်နိုင်ပါတယ်။">Solutions include synchronization, locks, atomic operations, thread-safe collections, database controls, or distributed locks depending on the problem.</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q8. What is a Deadlock?</div><div class="answer">
-<p>A deadlock occurs when threads wait for locks held by each other, so none can continue.</p>
+<div class="q"><div class="qhead" data-mm="Q8. Deadlock ဆိုတာ ဘာလဲ?">Q8. What is a Deadlock?</div><div class="answer" data-mm="&lt;p&gt;Deadlock ဆိုတာ Thread တွေက တစ်ခုနဲ့တစ်ခု ကိုင်ထားတဲ့ Lock ကို အပြန်အလှန်စောင့်နေလို့ ဘယ် Thread မှ ဆက်ပြီး Execute မလုပ်နိုင်တော့တဲ့ အခြေအနေပါ။&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Thread A: Lock 1 → waits for Lock 2
+Thread B: Lock 2 → waits for Lock 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;b&gt;ကာကွယ်ရန်:&lt;/b&gt; Lock Order ကို တစ်သမတ်တည်းထားခြင်း၊ Nested Lock လျှော့ခြင်း၊ Lock ကို အချိန်တိုတိုသာ ကိုင်ခြင်းနဲ့ &lt;code&gt;tryLock()&lt;/code&gt; လို Mechanism တွေကို အသုံးပြုနိုင်ပါတယ်။&lt;/p&gt;">
+<p data-mm="Deadlock ဆိုတာ thread တွေက တစ်ခုနဲ့တစ်ခုကိုင်ထားတဲ့ lock ကို အပြန်အလှန်စောင့်နေလို့ ဘယ် thread မှ ဆက်မလုပ်နိုင်တော့တဲ့အခြေအနေပါ။">A deadlock occurs when threads wait for locks held by each other, so none can continue.</p>
 <pre><code>Thread A: Lock 1 → waits for Lock 2
 Thread B: Lock 2 → waits for Lock 1</code></pre>
 <p><b>Prevention:</b> consistent lock ordering, minimizing nested locks, short lock duration, and mechanisms such as <code>tryLock()</code>.</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q9. What is JVM Heap vs Stack?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q9. JVM Heap နဲ့ Stack ဘာကွာလဲ?">Q9. What is JVM Heap vs Stack?</div><div class="answer" data-mm="&lt;p&gt;&lt;b&gt;Heap:&lt;/b&gt; Object တွေကို အများအားဖြင့် သိမ်းဆည်းတဲ့ Shared Memory Area ဖြစ်ပြီး Garbage Collection က Manage လုပ်ပေးပါတယ်။ Thread တွေအကြား Share လုပ်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Stack:&lt;/b&gt; Thread တစ်ခုစီမှာ ကိုယ်ပိုင် Stack ရှိပါတယ်။ Method Frame, Local Variable နဲ့ Execution State တွေကို သိမ်းထားပါတယ်။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Interview:&lt;/b&gt; “Heap က Thread တွေအကြား Shared ဖြစ်ပြီး Object တွေကို သိမ်းပါတယ်။ Thread တစ်ခုစီမှာတော့ Method Execution နဲ့ Local State အတွက် ကိုယ်ပိုင် Stack ရှိပါတယ်။”&lt;/p&gt;">
 <p><b>Heap:</b> shared memory area where objects are generally allocated and managed by garbage collection.</p>
 <p><b>Stack:</b> each thread has its own stack, containing method frames, local variables and execution state.</p>
 <p><b>Interview:</b> “The heap is shared among threads and stores objects, while each thread has its own stack for method execution and local state.”</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q10. How does your CV demonstrate concurrency experience?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q10. သင့် CV မှာ Concurrency Experience ကို ဘယ်လိုပြနိုင်လဲ?">Q10. How does your CV demonstrate concurrency experience?</div><div class="answer" data-mm="&lt;p&gt;&lt;b&gt;သင့်ရဲ့ တကယ့် Example ကို သုံးပါ:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;“အရင်အလုပ်မှာ Spring Batch သုံးပြီး Financial Reporting ကို လုပ်ခဲ့ပါတယ်။ Report Processing က အချိန်ကြာနေတာကြောင့် Multithreading သုံးပြီး Batch Processing ကို Optimize လုပ်ခဲ့ပါတယ်။ အဲဒီနောက် Report Generation Time ကို ၄၀% လောက် လျှော့ချနိုင်ခဲ့ပါတယ်။ ဒီ Experience က Concurrency သုံးခြင်းရဲ့ Performance Benefit နဲ့ Shared Resource တွေ၊ Thread Safety တွေကို သေချာစဉ်းစားရမယ်ဆိုတာ သင်ပေးခဲ့ပါတယ်။”&lt;/p&gt;">
 <p>Use your real example:</p>
 <p>“In my previous role, I worked on financial reporting with Spring Batch. Some report processing was taking too long, so I optimized batch processing using multithreading. This reduced report generation time by around 40%. That experience taught me both the performance benefits of concurrency and the need to consider shared resources and thread safety.”</p>
 </div></div>
 </section>
-
 <section id="spring">
-<h2>4. Spring Boot &amp; Spring Cloud</h2>
-
-<div class="q"><div class="qhead">Q1. What is IoC?</div><div class="answer"><p>Inversion of Control means object creation and dependency management are controlled by the Spring container rather than by application classes themselves.</p></div></div>
-
-<div class="q"><div class="qhead">Q2. What is Dependency Injection?</div><div class="answer">
-<p>Dependencies are provided to a class instead of the class creating them itself.</p>
+<h2 data-mm="၄။ Spring Boot &amp; Spring Cloud">4. Spring Boot &amp; Spring Cloud</h2>
+<div class="q"><div class="qhead" data-mm="Q1. IoC ဆိုတာ ဘာလဲ?">Q1. What is IoC?</div><div class="answer" data-mm="&lt;p&gt;Inversion of Control (IoC) ဆိုတာ Object Creation နဲ့ Dependency Management ကို Application Class ကိုယ်တိုင် မလုပ်ဘဲ Spring Container က ထိန်းချုပ်ပေးတာ ဖြစ်ပါတယ်။&lt;/p&gt;"><p data-mm="IoC ဆိုတာ object creation နဲ့ dependency management ကို application class ကိုယ်တိုင်မလုပ်ဘဲ Spring Container က ထိန်းချုပ်ပေးတာပါ။">Inversion of Control means object creation and dependency management are controlled by the Spring container rather than by application classes themselves.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q2. Dependency Injection (DI) ဆိုတာ ဘာလဲ?">Q2. What is Dependency Injection?</div><div class="answer" data-mm="&lt;p&gt;Class တစ်ခုလိုအပ်တဲ့ Dependency ကို Class ကိုယ်တိုင် Create မလုပ်ဘဲ အပြင်ကနေ Provide/Inject လုပ်ပေးတာကို Dependency Injection လို့ခေါ်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;ဒီနည်းက Loose Coupling, Testability နဲ့ Maintainability ကို ပိုကောင်းစေပါတယ်။&lt;/p&gt;">
+<p data-mm="Dependency Injection ဆိုတာ class က dependency ကို ကိုယ်တိုင် create မလုပ်ဘဲ Spring က ပေးသွင်းပေးတာပါ။">Dependencies are provided to a class instead of the class creating them itself.</p>
 <pre><code>@Service
 class OrderService {
     private final OrderRepository repository;
@@ -224,12 +243,19 @@ class OrderService {
 }</code></pre>
 <p><b>Interview:</b> “Dependency Injection improves loose coupling, testability, and maintainability.”</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q3. What are @Component, @Service and @Repository?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q3. @Component, @Service နဲ့ @Repository က ဘာတွေလဲ?">Q3. What are @Component, @Service and @Repository?</div><div class="answer" data-mm="&lt;ul&gt;&lt;li&gt;&lt;code&gt;@Component&lt;/code&gt; — အထွေထွေ Spring-managed Component အတွက် သုံးပါတယ်။&lt;/li&gt;&lt;li&gt;&lt;code&gt;@Service&lt;/code&gt; — Service/Business Logic Layer အတွက် သုံးပါတယ်။&lt;/li&gt;&lt;li&gt;&lt;code&gt;@Repository&lt;/code&gt; — Database/Data Access Layer အတွက် သုံးပါတယ်။&lt;/li&gt;&lt;/ul&gt;">
 <ul><li><code>@Component</code> — general Spring-managed component</li><li><code>@Service</code> — service/business layer</li><li><code>@Repository</code> — data-access layer</li></ul>
 </div></div>
-
-<div class="q"><div class="qhead">Q4. Explain a typical Spring Boot request flow.</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q4. ပုံမှန် Spring Boot Request Flow ကို ရှင်းပြပါ။">Q4. Explain a typical Spring Boot request flow.</div><div class="answer" data-mm="&lt;pre&gt;&lt;code&gt;Client
+  ↓
+Controller
+  ↓
+Service
+  ↓
+Repository
+  ↓
+Database&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Controller က HTTP Request/Response ကို Handle လုပ်ပါတယ်။ Service က Business Logic ကို Handle လုပ်ပါတယ်။ Repository က Database Persistence ကို Handle လုပ်ပါတယ်။&lt;/p&gt;">
 <pre><code>Client
   ↓
 Controller
@@ -239,74 +265,92 @@ Service
 Repository
   ↓
 Database</code></pre>
-<p>Controller handles HTTP concerns, Service handles business logic, Repository handles persistence.</p>
+<p data-mm="Controller က HTTP concerns ကို handle လုပ်ပြီး Service က business logic ကို handle လုပ်ပါတယ်။ Repository က database/persistence ကို handle လုပ်ပါတယ်။">Controller handles HTTP concerns, Service handles business logic, Repository handles persistence.</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q5. What is @Transactional?</div><div class="answer">
-<p>It defines a transaction boundary. Successful work can be committed; when a transaction fails according to rollback rules, changes can be rolled back.</p>
+<div class="q"><div class="qhead" data-mm="Q5. @Transactional ဆိုတာ ဘာလဲ?">Q5. What is @Transactional?</div><div class="answer" data-mm="&lt;p&gt;&lt;code&gt;@Transactional&lt;/code&gt; က Transaction Boundary ကို သတ်မှတ်ပေးပါတယ်။ Operation တွေအားလုံး အောင်မြင်ရင် Commit လုပ်နိုင်ပြီး Rollback Rule အရ Failure ဖြစ်ရင် Database Changes တွေကို Rollback လုပ်နိုင်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;ဥပမာ Bank Transfer လို Operation တစ်ခုမှာ Debit နဲ့ Credit နှစ်ခုစလုံး Consistent ဖြစ်ဖို့ Transaction လိုပါတယ်။&lt;/p&gt;">
+<p data-mm="Transaction boundary ကို သတ်မှတ်ပေးပါတယ်။ Operation အောင်မြင်ရင် commit လုပ်နိုင်ပြီး rollback rules အရ fail ဖြစ်ရင် changes တွေကို rollback လုပ်နိုင်ပါတယ်။">It defines a transaction boundary. Successful work can be committed; when a transaction fails according to rollback rules, changes can be rolled back.</p>
 <p><b>Example:</b> bank transfer or a critical ride-state update where multiple database changes must remain consistent.</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q6. How do you handle exceptions globally?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q6. Exception တွေကို Global အနေနဲ့ ဘယ်လို Handle လုပ်မလဲ?">Q6. How do you handle exceptions globally?</div><div class="answer" data-mm="&lt;p&gt;API Error Response တွေကို Consistent ဖြစ်အောင် &lt;code&gt;@RestControllerAdvice&lt;/code&gt; နဲ့ Exception Handler တွေကို အသုံးပြုနိုင်ပါတယ်။ Controller တစ်ခုချင်းစီမှာ Try/Catch အများကြီးရေးစရာမလိုဘဲ Centralized Error Handling လုပ်နိုင်ပါတယ်။&lt;/p&gt;">
 <p>Use <code>@RestControllerAdvice</code> / exception handlers to return consistent API error responses.</p>
 <pre><code>@RestControllerAdvice
 class GlobalExceptionHandler {
     // @ExceptionHandler(...)
 }</code></pre>
 </div></div>
-
-<div class="q"><div class="qhead">Q7. What is an API Gateway?</div><div class="answer">
-<p>An API Gateway is a single entry point for clients. It can perform routing and cross-cutting concerns such as authentication, filtering and request management.</p>
-<p><b>Your CV:</b> You have hands-on experience with Spring Cloud Gateway.</p>
+<div class="q"><div class="qhead" data-mm="Q7. API Gateway ဆိုတာ ဘာလဲ?">Q7. What is an API Gateway?</div><div class="answer" data-mm="&lt;p&gt;API Gateway က Client တွေအတွက် Single Entry Point ဖြစ်ပါတယ်။ Request Routing, Authentication, Filtering နဲ့ Request Management လို Cross-Cutting Concern တွေကို Handle လုပ်နိုင်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;သင့် CV:&lt;/b&gt; Spring Cloud Gateway ကို Hands-on အသုံးပြုဖူးပါတယ်။&lt;/p&gt;">
+<p data-mm="API Gateway က client တွေအတွက် single entry point ဖြစ်ပါတယ်။ Routing, authentication, filtering နဲ့ request management လို cross-cutting concerns တွေကို handle လုပ်နိုင်ပါတယ်။">An API Gateway is a single entry point for clients. It can perform routing and cross-cutting concerns such as authentication, filtering and request management.</p>
+<p data-mm="သင့် CV အရ Spring Cloud Gateway ကို hands-on သုံးဖူးပါတယ်။"><b>Your CV:</b> You have hands-on experience with Spring Cloud Gateway.</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q8. What are the advantages and disadvantages of microservices?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q8. Microservices ရဲ့ အားသာချက်နဲ့ အားနည်းချက်တွေက ဘာတွေလဲ?">Q8. What are the advantages and disadvantages of microservices?</div><div class="answer" data-mm="&lt;p&gt;&lt;b&gt;အားသာချက်များ:&lt;/b&gt; Service တစ်ခုချင်းစီကို သီးခြား Deploy နဲ့ Scale လုပ်နိုင်ခြင်း၊ Service Isolation နဲ့ Business Domain အလိုက် ခွဲနိုင်ခြင်း။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;အားနည်းချက်များ:&lt;/b&gt; Network Failure, Distributed Data Consistency ပြဿနာ၊ Monitoring/Observability ပိုရှုပ်ခြင်း၊ Deployment ပိုရှုပ်ခြင်းနဲ့ Service-to-Service Communication ပြဿနာများ။&lt;/p&gt;">
 <p><b>Advantages:</b> independent deployment, independent scaling, service isolation, business-domain separation.</p>
 <p><b>Disadvantages:</b> network failures, distributed data consistency, observability complexity, deployment complexity and service-to-service communication.</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q9. Why are you a good match for this Spring Boot role?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q9. ဒီ Spring Boot Role နဲ့ သင် ဘာကြောင့် ကိုက်ညီတယ်လို့ ထင်လဲ?">Q9. Why are you a good match for this Spring Boot role?</div><div class="answer" data-mm="&lt;p&gt;“Financial နဲ့ Enterprise System တွေမှာ Spring Boot ကို Hands-on သုံးဖူးပါတယ်။ Spring Cloud Gateway နဲ့ Microservices တွေကိုလည်း အလုပ်လုပ်ဖူးပါတယ်။ အရင်အလုပ်မှာ Spring Boot ကို Kafka, MySQL နဲ့ Spring Batch တို့နဲ့ တွဲဖက်အသုံးပြုခဲ့ပြီး လက်ရှိမှာလည်း Enterprise Application နဲ့ Backend Service တွေအတွက် Spring Boot ကို အသုံးပြုနေပါတယ်။”&lt;/p&gt;">
 <p>“I have hands-on Spring Boot experience in financial and enterprise systems. I’ve also worked with Spring Cloud Gateway and microservices. In my previous role I combined Spring Boot with Kafka, MySQL and Spring Batch, while in my current role I use Spring Boot for enterprise applications and backend services.”</p>
 </div></div>
 </section>
-
 <section id="distributed">
-<h2>5. Distributed Systems</h2>
-<p class="sub">Core scenario: Driver A and Driver B try to accept Ride #123 at the same time.</p>
-
-<div class="q"><div class="qhead">Q1. Why can't synchronized alone solve the two-driver problem?</div><div class="answer">
+<h2 data-mm="၅။ Distributed Systems">5. Distributed Systems</h2>
+<p class="sub" data-mm="အဓိက Scenario: Driver A နဲ့ Driver B က Ride #123 ကို တစ်ချိန်တည်း Accept လုပ်ဖို့ ကြိုးစားတယ်။">Core scenario: Driver A and Driver B try to accept Ride #123 at the same time.</p>
+<div class="q"><div class="qhead" data-mm="Q1. Driver နှစ်ယောက်က Ride တစ်စီးကို တစ်ချိန်တည်း Accept လုပ်တဲ့ Problem ကို synchronized တစ်ခုတည်းနဲ့ ဘာကြောင့် မဖြေရှင်းနိုင်တာလဲ?">Q1. Why can't synchronized alone solve the two-driver problem?</div><div class="answer" data-mm="&lt;p&gt;&lt;code&gt;synchronized&lt;/code&gt; က JVM တစ်ခုအတွင်းက Thread တွေကိုပဲ Coordinate လုပ်နိုင်ပါတယ်။ Distributed Deployment မှာ Request နှစ်ခုက JVM မတူတဲ့ Server တွေကို ရောက်နိုင်ပါတယ်။&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Driver A → Server 1 / JVM 1
+Driver B → Server 2 / JVM 2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;JVM နှစ်ခုက Monitor တစ်ခုတည်းကို Share မလုပ်ကြတဲ့အတွက် Server Instance အများကြား Distributed Mechanism တစ်ခု လိုအပ်ပါတယ်။&lt;/p&gt;">
 <p>Because <code>synchronized</code> coordinates threads within one JVM. In a distributed deployment:</p>
 <pre><code>Driver A → Server 1 / JVM 1
 Driver B → Server 2 / JVM 2</code></pre>
 <p>The JVMs do not share the same monitor. A shared distributed mechanism is needed.</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q2. What is a Distributed Lock?</div><div class="answer">
-<p>A distributed lock coordinates access to a shared resource across multiple application instances.</p>
+<div class="q"><div class="qhead" data-mm="Q2. Distributed Lock ဆိုတာ ဘာလဲ?">Q2. What is a Distributed Lock?</div><div class="answer" data-mm="&lt;p&gt;Distributed Lock ဆိုတာ Application Instance အများကြား Shared Resource တစ်ခုကို တစ်ချိန်တည်း ဘယ်သူက Process လုပ်ခွင့်ရှိလဲ Coordinate လုပ်ပေးတဲ့ Lock ဖြစ်ပါတယ်။&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Driver A → Server 1 → Redis → acquire ride:123
+Driver B → Server 2 → Redis → lock unavailable&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ဒါကြောင့် Ride တစ်စီးရဲ့ Critical Section ကို တစ်ချိန်တည်းမှာ Instance တစ်ခုကပဲ Process လုပ်နိုင်အောင် ကူညီပေးပါတယ်။&lt;/p&gt;">
+<p data-mm="Distributed Lock က application instance အများကြား shared resource တစ်ခုကို ဘယ်သူက process လုပ်ခွင့်ရှိလဲ coordinate လုပ်ပေးတာပါ။">A distributed lock coordinates access to a shared resource across multiple application instances.</p>
 <pre><code>Driver A → Server 1 → Redis → acquire ride:123
 Driver B → Server 2 → Redis → lock unavailable</code></pre>
 <p><b>Interview:</b> “Because multiple instances can process the same ride concurrently, I could use a Redis-based distributed lock around the critical section.”</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q3. Is a Redis lock alone enough?</div><div class="answer">
-<p>No. Treat the database as the source of truth for the ride state. Validate the current state and use a transaction/conditional update.</p>
+<div class="q"><div class="qhead" data-mm="Q3. Redis Lock တစ်ခုတည်းနဲ့ လုံလောက်လား?">Q3. Is a Redis lock alone enough?</div><div class="answer" data-mm="&lt;p&gt;မလုံလောက်ပါဘူး။ Ride State အတွက် Database ကို Source of Truth အဖြစ် သတ်မှတ်သင့်ပါတယ်။ Current State ကို Validate လုပ်ပြီး Conditional Update ဒါမှမဟုတ် Transaction ကို သုံးသင့်ပါတယ်။&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;UPDATE rides
+SET status = 'ACCEPTED',
+    driver_id = ?
+WHERE id = ?
+AND status = 'AVAILABLE';&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;အခြား Driver တစ်ယောက်က အရင် Accept လုပ်ပြီးသားဆိုရင် ဒုတိယ Update က &lt;code&gt;affected rows = 0&lt;/code&gt; ဖြစ်ပြီး Duplicate Acceptance ကို ကာကွယ်နိုင်ပါတယ်။&lt;/p&gt;">
+<p data-mm="မလုံလောက်ပါဘူး။ Ride state အတွက် database ကို source of truth အဖြစ်ထားပြီး current state ကို validate လုပ်သင့်ပါတယ်။ Transaction ဒါမှမဟုတ် conditional update ကိုလည်း သုံးသင့်ပါတယ်။">No. Treat the database as the source of truth for the ride state. Validate the current state and use a transaction/conditional update.</p>
 <pre><code>UPDATE rides
 SET status = 'ACCEPTED', driver_id = ?
 WHERE id = ?
   AND status = 'AVAILABLE';</code></pre>
 <p>If another request already accepted it, the second update affects zero rows.</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q4. What is Idempotency?</div><div class="answer">
-<p>Idempotency means retrying the same logical request does not create repeated business effects.</p>
+<div class="q"><div class="qhead" data-mm="Q4. Idempotency ဆိုတာ ဘာလဲ?">Q4. What is Idempotency?</div><div class="answer" data-mm="&lt;p&gt;Idempotency ဆိုတာ တူညီတဲ့ Logical Request ကို Retry အကြိမ်ကြိမ်လုပ်ပေမယ့် Business Effect ကို ထပ်ခါထပ်ခါ မဖြစ်စေတဲ့ Design ဖြစ်ပါတယ်။&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;POST /rides/123/accept
+Idempotency-Key: abc123&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ပထမ Request က Process လုပ်ပြီး Result ကို သိမ်းထားမယ်။ တူညီတဲ့ Key နဲ့ Retry လာရင် Operation ကို ထပ်မလုပ်ဘဲ အရင် Result ကို ပြန်ပေးနိုင်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;မှတ်ရန်:&lt;/b&gt; “Lock က Concurrent Execution ကို ကာကွယ်တယ်။ Idempotency က Duplicate/Retry Operation ကို ကာကွယ်တယ်။”&lt;/p&gt;">
+<p data-mm="Idempotency ဆိုတာ တူညီတဲ့ logical request ကို retry အကြိမ်ကြိမ်လုပ်လည်း business effect ကို အကြိမ်ကြိမ် မဖြစ်စေတာပါ။">Idempotency means retrying the same logical request does not create repeated business effects.</p>
 <pre><code>POST /rides/123/accept
 Idempotency-Key: abc123</code></pre>
 <p>First request processes and stores the result. A retry with the same key can return the stored result instead of performing the business operation again.</p>
 <p><b>Remember:</b> “Lock protects concurrent execution. Idempotency protects against duplicate/retry operations.”</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q5. What is Eventual Consistency?</div><div class="answer">
-<p>In a distributed system, different components may temporarily have different states. After events are propagated and processed, they converge to a consistent state.</p>
+<div class="q"><div class="qhead" data-mm="Q5. Eventual Consistency ဆိုတာ ဘာလဲ?">Q5. What is Eventual Consistency?</div><div class="answer" data-mm="&lt;p&gt;Distributed System မှာ Component တစ်ခုနဲ့တစ်ခု State မတူတာ ခဏတာ ဖြစ်နိုင်ပါတယ်။ Event တွေ Propagate နဲ့ Process ပြီးသွားတဲ့အခါ နောက်ဆုံးမှာ Consistent State တစ်ခုကို ပြန်ရောက်လာပါတယ်။&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Ride Service
+  ↓
+MySQL: ACCEPTED
+  ↓
+Kafka event
+  ↓
+Notification Service
+  ↓
+Notification sent later&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ride Assignment လို Critical State မှာ Strong Consistency ကို ဦးစားပေးပြီး Notification/Analytics လို ချက်ချင်း Update မလိုတဲ့အပိုင်းတွေမှာ Eventual Consistency ကို အသုံးပြုနိုင်ပါတယ်။&lt;/p&gt;">
+<p data-mm="Distributed system မှာ component တစ်ခုနဲ့တစ်ခု state မတူတာ ခဏတာဖြစ်နိုင်ပါတယ်။ Event တွေ propagate/process ပြီးသွားရင် နောက်ဆုံးမှာ consistent state ကို ရောက်လာပါတယ်။">In a distributed system, different components may temporarily have different states. After events are propagated and processed, they converge to a consistent state.</p>
 <pre><code>Ride Service
   ↓
 MySQL: ACCEPTED
@@ -318,21 +362,33 @@ Notification Service
 Notification sent later</code></pre>
 <p>Core ride assignment may need strong consistency, while notifications/analytics can often tolerate eventual consistency.</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q6. Full answer: two drivers accept the same ride</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q6. Driver နှစ်ယောက်က Ride တစ်စီးကို တစ်ချိန်တည်း Accept လုပ်ရင် ဘယ်လိုဖြေရှင်းမလဲ?">Q6. Full answer: two drivers accept the same ride</div><div class="answer" data-mm="&lt;p&gt;“ပထမဆုံး Ride Acceptance ကို High-Concurrency Operation အဖြစ် စဉ်းစားမယ်။ Application Instance အများကြီးက Request ကို တစ်ချိန်တည်း Process လုပ်နိုင်တာကြောင့် သက်ဆိုင်ရာ Ride အတွက် Redis-based Distributed Lock သုံးပြီး Concurrent Processing ကို ကာကွယ်နိုင်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;ပြီးရင် Database ထဲက Ride Status ကို စစ်ပြီး AVAILABLE ဖြစ်နေသေးမှ ACCEPTED အဖြစ် Update လုပ်မယ်။ Database ကို Final Source of Truth ဖြစ်စေဖို့ Transaction ဒါမှမဟုတ် Conditional Update ကို သုံးမယ်။&lt;/p&gt;
+&lt;p&gt;Client က Request ကို Retry လုပ်တဲ့အခါ Ride Acceptance ကို အကြိမ်ကြိမ် မလုပ်မိအောင် Idempotency Key သုံးပြီး API ကို Idempotent ဖြစ်အောင်လည်း Design လုပ်မယ်။&lt;/p&gt;
+&lt;p&gt;Accept အောင်မြင်ပြီးရင် Notification ဒါမှမဟုတ် Analytics လို Asynchronous Work တွေအတွက် Kafka Event Publish လုပ်နိုင်ပါတယ်။ ချက်ချင်း Consistency မလိုတဲ့ Downstream Service တွေမှာ Eventual Consistency ကို အသုံးပြုနိုင်ပါတယ်။”&lt;/p&gt;">
 <p>“First, I would treat ride acceptance as a high-concurrency operation. Since multiple application instances may process the request, I could use a Redis-based distributed lock for the specific ride to prevent concurrent processing.</p>
-<p>Then I would check the ride status in the database and update it only if it is still AVAILABLE. I would use a transaction or conditional update so the database remains the final source of truth.</p>
-<p>I would also make the API idempotent, for example by using an idempotency key, so a client retry does not process the ride acceptance multiple times.</p>
+<p data-mm="ပြီးရင် database ထဲက ride status ကိုစစ်ပြီး AVAILABLE ဖြစ်နေသေးမှ update လုပ်မယ်။ Database ကို final source of truth ဖြစ်စေဖို့ transaction ဒါမှမဟုတ် conditional update သုံးမယ်။">Then I would check the ride status in the database and update it only if it is still AVAILABLE. I would use a transaction or conditional update so the database remains the final source of truth.</p>
+<p data-mm="API ကိုလည်း idempotent ဖြစ်အောင်လုပ်မယ်။ ဥပမာ idempotency key သုံးပြီး client retry လုပ်တဲ့အခါ ride acceptance ကို အကြိမ်ကြိမ် process မဖြစ်အောင်လုပ်မယ်။">I would also make the API idempotent, for example by using an idempotency key, so a client retry does not process the ride acceptance multiple times.</p>
 <p>After successful acceptance, I could publish an event through Kafka for asynchronous work such as notifications or analytics. Those downstream services can use eventual consistency where exact immediate consistency is not required.”</p>
 </div></div>
 </section>
-
 <section id="redis">
-<h2>6. Redis</h2>
-
-<div class="q"><div class="qhead">Q1. What is Redis commonly used for?</div><div class="answer"><p>Fast key-value storage, caching, sessions, counters, distributed coordination/locks, and other low-latency use cases.</p><p><b>Your CV:</b> Redis-backed WebSocket updates for live bets and wallet balances.</p></div></div>
-
-<div class="q"><div class="qhead">Q2. Explain Cache-Aside.</div><div class="answer">
+<h2 data-mm="၆။ Redis">6. Redis</h2>
+<div class="q"><div class="qhead" data-mm="Q1. Redis ကို ဘာတွေအတွက် အသုံးများလဲ?">Q1. What is Redis commonly used for?</div><div class="answer" data-mm="&lt;p&gt;Redis ကို Fast Key-Value Storage, Caching, Session, Counter, Distributed Coordination/Lock နဲ့ Low-Latency Use Case တွေအတွက် အသုံးများပါတယ်။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;သင့် CV:&lt;/b&gt; Live Bet နဲ့ Wallet Balance တွေကို Real-Time Update လုပ်ဖို့ Redis-backed WebSocket ကို အသုံးပြုဖူးပါတယ်။&lt;/p&gt;"><p data-mm="Redis ကို fast key-value storage, caching, session, counter, distributed coordination/lock နဲ့ low-latency use case တွေအတွက် သုံးနိုင်ပါတယ်။">Fast key-value storage, caching, sessions, counters, distributed coordination/locks, and other low-latency use cases.</p><p><b>Your CV:</b> Redis-backed WebSocket updates for live bets and wallet balances.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q2. Cache-Aside Pattern ကို ရှင်းပြပါ။">Q2. Explain Cache-Aside.</div><div class="answer" data-mm="&lt;p&gt;Cache-Aside မှာ Application က ပထမဆုံး Cache ကို စစ်ပါတယ်။&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Application
+   ↓
+Redis?
+ ┌─┴───────────────┐
+Hit                Miss
+ ↓                   ↓
+Return            MySQL
+                      ↓
+                 Save Redis
+                      ↓
+                   Return&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Cache Hit ဖြစ်ရင် Cache ထဲက Data ကို တိုက်ရိုက်ပြန်ပေးပါတယ်။ Miss ဖြစ်ရင် Database ကနေ ဖတ်ပြီး Cache ထဲပြန်သိမ်းကာ Result ကို ပြန်ပေးပါတယ်။&lt;/p&gt;">
 <pre><code>Application
    ↓
 Redis?
@@ -345,26 +401,30 @@ Return            MySQL
                       ↓
                    Return</code></pre>
 </div></div>
-
-<div class="q"><div class="qhead">Q3. What is cache invalidation?</div><div class="answer"><p>When the underlying data changes, cached data may become stale. The application needs a strategy to invalidate, update, or expire the relevant cache.</p></div></div>
-
-<div class="q"><div class="qhead">Q4. What are cache penetration, breakdown and avalanche?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q3. Cache Invalidation ဆိုတာ ဘာလဲ?">Q3. What is cache invalidation?</div><div class="answer" data-mm="&lt;p&gt;မူရင်း Data ပြောင်းသွားတဲ့အခါ Cache ထဲက Data က Stale ဖြစ်သွားနိုင်ပါတယ်။ ဒါကြောင့် သက်ဆိုင်ရာ Cache ကို Invalidate, Update ဒါမှမဟုတ် Expire လုပ်ဖို့ Strategy လိုပါတယ်။&lt;/p&gt;"><p>When the underlying data changes, cached data may become stale. The application needs a strategy to invalidate, update, or expire the relevant cache.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q4. Cache Penetration, Breakdown နဲ့ Avalanche ဆိုတာ ဘာတွေလဲ?">Q4. What are cache penetration, breakdown and avalanche?</div><div class="answer" data-mm="&lt;p&gt;&lt;b&gt;Penetration:&lt;/b&gt; မရှိတဲ့ Key တွေကို Request အကြိမ်ကြိမ်လာပြီး Database ကို ထပ်ခါထပ်ခါ Query လုပ်ရတဲ့အခြေအနေ။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Breakdown:&lt;/b&gt; လူအများသုံးနေတဲ့ Popular Key တစ်ခု Expire ဖြစ်သွားပြီး Request အများကြီးက Database ကို တစ်ချိန်တည်း ဝင်သွားတဲ့အခြေအနေ။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Avalanche:&lt;/b&gt; Cache Key အများကြီး တစ်ချိန်တည်း Expire ဖြစ်သွားလို့ Database Load ရုတ်တရက် အများကြီးတက်လာတဲ့အခြေအနေ။&lt;/p&gt;">
 <ul>
 <li><b>Penetration:</b> requests repeatedly query keys that don't exist, potentially hitting the database.</li>
 <li><b>Breakdown:</b> a very popular key expires and many requests hit the database at once.</li>
 <li><b>Avalanche:</b> many cache keys expire together, causing a large database load spike.</li>
 </ul>
 </div></div>
-
-<div class="q"><div class="qhead">Q5. How would you describe your Redis experience honestly?</div><div class="answer"><p>“I have hands-on Redis experience from a project where Redis was used with WebSocket for real-time updates of live bets and wallet balances. My production experience with Redis distributed locks is more limited, but I understand the distributed-lock concept and how it could be applied to a high-concurrency ride system.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q5. သင့် Redis Experience ကို ရိုးရိုးသားသား ဘယ်လိုပြောမလဲ?">Q5. How would you describe your Redis experience honestly?</div><div class="answer" data-mm="&lt;p&gt;“Project တစ်ခုမှာ Redis ကို WebSocket နဲ့တွဲပြီး Live Bet နဲ့ Wallet Balance တွေကို Real-Time Update လုပ်ဖို့ အသုံးပြုဖူးပါတယ်။ Redis Distributed Lock ကို Production မှာ အသုံးပြုဖူးတဲ့ Experience က ပိုနည်းပါတယ်။ ဒါပေမယ့် Distributed Lock Concept ကို နားလည်ပြီး High-Concurrency Ride System မှာ ဘယ်လိုအသုံးချနိုင်မလဲဆိုတာ နားလည်ပါတယ်။”&lt;/p&gt;"><p>“I have hands-on Redis experience from a project where Redis was used with WebSocket for real-time updates of live bets and wallet balances. My production experience with Redis distributed locks is more limited, but I understand the distributed-lock concept and how it could be applied to a high-concurrency ride system.”</p></div></div>
 </section>
-
 <section id="kafka">
-<h2>7. Kafka</h2>
-
-<div class="q"><div class="qhead">Q1. Why use Kafka?</div><div class="answer"><p>Kafka supports asynchronous, event-driven communication and decouples producers from consumers. It can scale message processing and helps prevent one slow downstream service from blocking the entire business flow.</p><p><b>Your CV:</b> You used Kafka in a financial/accounting system and implemented event-driven architecture.</p></div></div>
-
-<div class="q"><div class="qhead">Q2. Explain Topic, Partition, Producer, Consumer and Consumer Group.</div><div class="answer">
+<h2 data-mm="၇။ Kafka">7. Kafka</h2>
+<div class="q"><div class="qhead" data-mm="Q1. Kafka ကို ဘာကြောင့် အသုံးပြုတာလဲ?">Q1. Why use Kafka?</div><div class="answer" data-mm="&lt;p&gt;Kafka က Asynchronous နဲ့ Event-Driven Communication ကို Support လုပ်ပြီး Producer နဲ့ Consumer ကို Decouple လုပ်ပေးပါတယ်။ Message Processing ကို Scale လုပ်နိုင်ပြီး Downstream Service တစ်ခုနှေးနေတာကြောင့် Business Flow တစ်ခုလုံး Block မဖြစ်အောင် ကူညီနိုင်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;သင့် Experience:&lt;/b&gt; Financial/Accounting System မှာ Kafka ကို Event-Driven Architecture အတွက် အသုံးပြုဖူးပါတယ်။&lt;/p&gt;"><p data-mm="Kafka က asynchronous, event-driven communication ကို support လုပ်ပြီး producer နဲ့ consumer ကို decouple လုပ်ပေးပါတယ်။ Message processing ကို scale လုပ်နိုင်ပြီး downstream service တစ်ခုနှေးနေတာကြောင့် business flow တစ်ခုလုံး block မဖြစ်အောင် ကူညီနိုင်ပါတယ်။">Kafka supports asynchronous, event-driven communication and decouples producers from consumers. It can scale message processing and helps prevent one slow downstream service from blocking the entire business flow.</p><p><b>Your CV:</b> You used Kafka in a financial/accounting system and implemented event-driven architecture.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q2. Topic, Partition, Producer, Consumer နဲ့ Consumer Group ကို ရှင်းပြပါ။">Q2. Explain Topic, Partition, Producer, Consumer and Consumer Group.</div><div class="answer" data-mm="&lt;pre&gt;&lt;code&gt;Producer
+   ↓
+Topic
+ ├── Partition 0 → Consumer A
+ ├── Partition 1 → Consumer B
+ └── Partition 2 → Consumer C&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;&lt;li&gt;&lt;b&gt;Producer:&lt;/b&gt; Message ကို Publish လုပ်တဲ့သူ။&lt;/li&gt;&lt;li&gt;&lt;b&gt;Topic:&lt;/b&gt; Message တွေရဲ့ Logical Stream/Category။&lt;/li&gt;&lt;li&gt;&lt;b&gt;Partition:&lt;/b&gt; Order နဲ့ သိမ်းထားတဲ့ Log Segment ဖြစ်ပြီး Parallel Processing ကို Enable လုပ်ပေးပါတယ်။&lt;/li&gt;&lt;li&gt;&lt;b&gt;Consumer:&lt;/b&gt; Message ကို Read/Process လုပ်တဲ့သူ။&lt;/li&gt;&lt;li&gt;&lt;b&gt;Consumer Group:&lt;/b&gt; Partition တွေကို Consumer တွေကြား ခွဲဝေယူပြီး Parallel Processing လုပ်တဲ့ အုပ်စု။&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Consumer Group တစ်ခုအတွင်းမှာ Partition တစ်ခုကို အချိန်တစ်ခုမှာ Consumer တစ်ခုကပဲ Consume လုပ်နိုင်ပါတယ်။&lt;/p&gt;">
 <pre><code>Producer
    ↓
 Topic
@@ -377,14 +437,17 @@ Each partition is consumed by one consumer
 within that group at a time.</code></pre>
 <ul><li><b>Producer:</b> publishes messages.</li><li><b>Topic:</b> logical stream/category of messages.</li><li><b>Partition:</b> ordered log segment that enables parallelism.</li><li><b>Consumer:</b> reads messages.</li><li><b>Consumer Group:</b> group of consumers sharing partitions for parallel processing.</li></ul>
 </div></div>
-
-<div class="q"><div class="qhead">Q3. What is an Offset?</div><div class="answer"><p>An offset identifies a message position within a Kafka partition. Consumers track progress using offsets.</p></div></div>
-
-<div class="q"><div class="qhead">Q4. What if a Kafka message is processed twice?</div><div class="answer"><p>Design the consumer operation to be idempotent. For example, store a unique event ID or business operation ID and reject/ignore a duplicate that was already successfully processed.</p><p><b>Interview:</b> “I would not assume every message is processed exactly once. I would make the business operation idempotent and handle duplicates safely.”</p></div></div>
-
-<div class="q"><div class="qhead">Q5. What is at-least-once delivery?</div><div class="answer"><p>The message can be delivered more than once, so consumers must tolerate duplicates. It is often a practical reliability model for business systems.</p></div></div>
-
-<div class="q"><div class="qhead">Q6. How would Kafka fit a ride-hailing system?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q3. Kafka Offset ဆိုတာ ဘာလဲ?">Q3. What is an Offset?</div><div class="answer" data-mm="&lt;p&gt;Offset က Kafka Partition တစ်ခုထဲမှာ Message တစ်ခုရဲ့ Position ကို Identify လုပ်ပေးပါတယ်။ Consumer က ဘယ် Message အထိ Process လုပ်ပြီးပြီလဲဆိုတာ Offset နဲ့ Track လုပ်ပါတယ်။&lt;/p&gt;"><p data-mm="Offset က Kafka partition တစ်ခုထဲက message ရဲ့ position ကို identify လုပ်ပါတယ်။ Consumer တွေက offset နဲ့ processing progress ကို track လုပ်ပါတယ်။">An offset identifies a message position within a Kafka partition. Consumers track progress using offsets.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q4. Kafka Message တစ်ခုကို နှစ်ကြိမ် Process လုပ်မိရင် ဘာလုပ်မလဲ?">Q4. What if a Kafka message is processed twice?</div><div class="answer" data-mm="&lt;p&gt;Consumer Operation ကို Idempotent ဖြစ်အောင် Design လုပ်ပါမယ်။ Unique Event ID ဒါမှမဟုတ် Business Operation ID ကို သိမ်းထားပြီး အရင်က Process ပြီးသား Duplicate Message ဖြစ်ရင် Ignore/Reject လုပ်နိုင်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Interview:&lt;/b&gt; “Message တိုင်း Exactly Once Process ဖြစ်မယ်လို့ မယူဆပါဘူး။ Business Operation ကို Idempotent ဖြစ်အောင်လုပ်ပြီး Duplicate Message တွေကို Safe ဖြစ်အောင် Handle လုပ်ပါမယ်။”&lt;/p&gt;"><p data-mm="Consumer operation ကို idempotent ဖြစ်အောင် design လုပ်ပါ။ ဥပမာ unique event ID သို့မဟုတ် business operation ID ကိုသိမ်းပြီး အရင်က process ပြီးသား duplicate ကို ignore/reject လုပ်နိုင်ပါတယ်။">Design the consumer operation to be idempotent. For example, store a unique event ID or business operation ID and reject/ignore a duplicate that was already successfully processed.</p><p><b>Interview:</b> “I would not assume every message is processed exactly once. I would make the business operation idempotent and handle duplicates safely.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q5. At-least-once Delivery ဆိုတာ ဘာလဲ?">Q5. What is at-least-once delivery?</div><div class="answer" data-mm="&lt;p&gt;Message တစ်ခုက တစ်ကြိမ်ထက်ပိုပြီး Delivery ဖြစ်နိုင်တဲ့ Model ပါ။ ဒါကြောင့် Consumer က Duplicate Message တွေကို Handle နိုင်ရပါမယ်။ Business System တွေအတွက် Reliability ကောင်းစေတဲ့ လက်တွေ့အသုံးများတဲ့ Delivery Model တစ်ခု ဖြစ်ပါတယ်။&lt;/p&gt;"><p>The message can be delivered more than once, so consumers must tolerate duplicates. It is often a practical reliability model for business systems.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q6. Ride-Hailing System မှာ Kafka ကို ဘယ်လိုအသုံးပြုမလဲ?">Q6. How would Kafka fit a ride-hailing system?</div><div class="answer" data-mm="&lt;pre&gt;&lt;code&gt;Order Service
+   ↓ publish RideAccepted
+Kafka Topic
+   ├── Notification Service
+   ├── Analytics Service
+   └── Other downstream services&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;RideAccepted Event, Notification Event, Analytics Event နဲ့ အခြား Decoupled Downstream Processing တွေအတွက် Kafka ကို အသုံးပြုနိုင်ပါတယ်။ Core Ride State ကို Database မှာ သိမ်းထားပြီး Kafka ကို Asynchronous Work အတွက် အသုံးပြုနိုင်ပါတယ်။&lt;/p&gt;">
 <pre><code>Order Service
    ↓ publish RideAccepted
 Kafka Topic
@@ -394,40 +457,37 @@ Kafka Topic
 <p>Core ride state is persisted in the database; Kafka handles asynchronous downstream work.</p>
 </div></div>
 </section>
-
 <section id="mysql">
-<h2>8. MySQL &amp; Database</h2>
-
-<div class="q"><div class="qhead">Q1. What is an index?</div><div class="answer"><p>An index is a data structure that helps the database find rows more efficiently for suitable queries. It can improve reads but adds storage and write/update overhead.</p></div></div>
-
-<div class="q"><div class="qhead">Q2. How do you investigate a slow query?</div><div class="answer">
+<h2 data-mm="၈။ MySQL &amp; Database">8. MySQL &amp; Database</h2>
+<div class="q"><div class="qhead" data-mm="Q1. Database Index ဆိုတာ ဘာလဲ?">Q1. What is an index?</div><div class="answer" data-mm="&lt;p&gt;Index ဆိုတာ သင့်တော်တဲ့ Query တွေအတွက် Database က Row တွေကို ပိုမြန်မြန်ရှာနိုင်အောင် ကူညီပေးတဲ့ Data Structure ဖြစ်ပါတယ်။ Read Performance ကောင်းစေပေမယ့် Storage နဲ့ Write/Update Overhead ရှိပါတယ်။&lt;/p&gt;"><p data-mm="Index ဆိုတာ သင့်တော်တဲ့ query တွေအတွက် database က row တွေကို ပိုမြန်မြန်ရှာနိုင်အောင် ကူညီတဲ့ data structure ပါ။ Read performance ကောင်းစေပေမယ့် storage နဲ့ write/update overhead ရှိပါတယ်။">An index is a data structure that helps the database find rows more efficiently for suitable queries. It can improve reads but adds storage and write/update overhead.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q2. Slow Query တစ်ခုကို ဘယ်လို စစ်ဆေးမလဲ?">Q2. How do you investigate a slow query?</div><div class="answer" data-mm="&lt;ol&gt;&lt;li&gt;Query နဲ့ Filter Condition တွေကို စစ်မယ်။&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXPLAIN&lt;/code&gt; သုံးပြီး Query Execution Plan ကို စစ်မယ်။&lt;/li&gt;&lt;li&gt;အသုံးဝင်တဲ့ Index ရှိ/မရှိ စစ်မယ်။&lt;/li&gt;&lt;li&gt;JOIN, Selected Columns, Row Count နဲ့ Filtering တွေကို ပြန်စစ်မယ်။&lt;/li&gt;&lt;li&gt;လိုအပ်ရင် Composite/Covering Index ကို စဉ်းစားမယ်။&lt;/li&gt;&lt;li&gt;ပြင်ဆင်ပြီးတဲ့နောက် Performance ကို ပြန်တိုင်းမယ်။&lt;/li&gt;&lt;/ol&gt;">
 <ol><li>Look at the query and filters.</li><li>Use <code>EXPLAIN</code> to inspect the execution plan.</li><li>Check whether useful indexes exist.</li><li>Review joins, selected columns, row counts and filtering.</li><li>Consider a composite/covering index where appropriate.</li><li>Measure again after the change.</li></ol>
 <pre><code>EXPLAIN SELECT *
 FROM orders
 WHERE user_id = ?
   AND status = ?;</code></pre>
 </div></div>
-
-<div class="q"><div class="qhead">Q3. What is a composite index?</div><div class="answer"><p>An index over multiple columns, such as <code>(user_id, status)</code>. Column order matters because the database optimizer can use the index according to its access pattern and index-prefix rules.</p></div></div>
-
-<div class="q"><div class="qhead">Q4. What is a transaction?</div><div class="answer"><p>A transaction groups database operations into a unit with properties commonly described by ACID: Atomicity, Consistency, Isolation and Durability.</p></div></div>
-
-<div class="q"><div class="qhead">Q5. What is read/write splitting?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q3. Composite Index ဆိုတာ ဘာလဲ?">Q3. What is a composite index?</div><div class="answer" data-mm="&lt;p&gt;Column အများကြီးပေါ်မှာ တည်ဆောက်ထားတဲ့ Index ကို Composite Index လို့ခေါ်ပါတယ်၊ ဥပမာ &lt;code&gt;(user_id, status)&lt;/code&gt;။ Column Order က အရေးကြီးပြီး Query Access Pattern နဲ့ Index Prefix Rule အပေါ်မူတည်ပြီး Database က Index ကို အသုံးပြုပါတယ်။&lt;/p&gt;"><p>An index over multiple columns, such as <code>(user_id, status)</code>. Column order matters because the database optimizer can use the index according to its access pattern and index-prefix rules.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q4. Transaction ဆိုတာ ဘာလဲ?">Q4. What is a transaction?</div><div class="answer" data-mm="&lt;p&gt;Transaction က Database Operation အများကို Unit တစ်ခုအဖြစ် စုစည်းပေးပါတယ်။ ACID ဆိုတာ Atomicity, Consistency, Isolation နဲ့ Durability ဖြစ်ပါတယ်။&lt;/p&gt;"><p data-mm="Transaction က database operations အများကို unit တစ်ခုအဖြစ် စုစည်းပေးပါတယ်။ ACID ဆိုတာ Atomicity, Consistency, Isolation, Durability ဖြစ်ပါတယ်။">A transaction groups database operations into a unit with properties commonly described by ACID: Atomicity, Consistency, Isolation and Durability.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q5. Read/Write Splitting ဆိုတာ ဘာလဲ?">Q5. What is read/write splitting?</div><div class="answer" data-mm="&lt;pre&gt;&lt;code&gt;Application
+   ├── WRITE → Primary
+   └── READ  → Replica&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Read Capacity ကို တိုးစေနိုင်ပါတယ်။ ဒါပေမယ့် Replication Lag ရှိနိုင်တာကြောင့် အသစ် Write လုပ်ထားတဲ့ Data ကို Replica မှာ ချက်ချင်း မမြင်ရနိုင်ပါဘူး။&lt;/p&gt;">
 <pre><code>Application
    ├── WRITE → Primary
    └── READ  → Replica</code></pre>
-<p>It can increase read capacity, but replication lag means a recent write may not be immediately visible on a replica.</p>
+<p data-mm="Read capacity တိုးစေနိုင်ပေမယ့် replication lag ကြောင့် အသစ်ရေးထားတဲ့ data ကို replica မှာ ချက်ချင်းမမြင်ရနိုင်ပါဘူး။">It can increase read capacity, but replication lag means a recent write may not be immediately visible on a replica.</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q6. What is replication lag?</div><div class="answer"><p>When a replica has not yet applied a recent update from the primary. A user may write data and immediately read from a lagging replica, seeing stale data.</p></div></div>
-
-<div class="q"><div class="qhead">Q7. What is database sharding?</div><div class="answer"><p>Splitting data across multiple database nodes based on a sharding key to distribute storage and workload. Choosing a good key is critical to avoid hotspots and difficult cross-shard queries.</p><p><b>Honesty for you:</b> Your CV does not explicitly claim production sharding experience, so describe it as knowledge unless you have real project experience.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q6. Replication Lag ဆိုတာ ဘာလဲ?">Q6. What is replication lag?</div><div class="answer" data-mm="&lt;p&gt;Replica က Primary ရဲ့ Update အသစ်ကို မရသေးတဲ့အခြေအနေကို Replication Lag လို့ခေါ်ပါတယ်။ User က Write လုပ်ပြီး ချက်ချင်း Lagging Replica ကနေ Read လုပ်ရင် Stale Data ကို မြင်ရနိုင်ပါတယ်။&lt;/p&gt;"><p data-mm="Replica က primary ရဲ့ update အသစ်ကို မapply ရသေးတဲ့အခြေအနေကို replication lag လို့ခေါ်ပါတယ်။ အဲဒီအချိန်မှာ user က write ပြီးချက်ချင်း lagging replica ကနေ read လုပ်ရင် stale data ရနိုင်ပါတယ်။">When a replica has not yet applied a recent update from the primary. A user may write data and immediately read from a lagging replica, seeing stale data.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q7. Database Sharding ဆိုတာ ဘာလဲ?">Q7. What is database sharding?</div><div class="answer" data-mm="&lt;p&gt;Data ကို Sharding Key အပေါ်မူတည်ပြီး Database Node အများကြား ခွဲသိမ်းတာကို Sharding လို့ခေါ်ပါတယ်။ Storage နဲ့ Workload ကို ဖြန့်နိုင်ပေမယ့် Hotspot မဖြစ်စေဖို့နဲ့ Cross-Shard Query ခက်ခဲမှုကို လျှော့ဖို့ Sharding Key ကို ကောင်းကောင်းရွေးဖို့ အရေးကြီးပါတယ်။&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;သင့်အတွက်:&lt;/b&gt; သင့် CV မှာ Production Sharding Experience ကို တိတိကျကျ မဖော်ပြထားတာကြောင့် တကယ် Project Experience မရှိရင် Concept/Knowledge အနေနဲ့ပဲ ပြောပါ။&lt;/p&gt;"><p data-mm="Data ကို sharding key အပေါ်မူတည်ပြီး database node အများကြား ခွဲသိမ်းတာကို sharding လို့ခေါ်ပါတယ်။ Hotspot မဖြစ်ဖို့နဲ့ cross-shard query ခက်ခဲမှုကို လျှော့ဖို့ key ကောင်းကောင်းရွေးဖို့ အရေးကြီးပါတယ်။">Splitting data across multiple database nodes based on a sharding key to distribute storage and workload. Choosing a good key is critical to avoid hotspots and difficult cross-shard queries.</p><p><b>Honesty for you:</b> Your CV does not explicitly claim production sharding experience, so describe it as knowledge unless you have real project experience.</p></div></div>
 </section>
-
 <section id="nosql">
-<h2>9. NoSQL / MongoDB</h2>
-
-<div class="q"><div class="qhead">Q1. MySQL vs NoSQL?</div><div class="answer">
+<h2 data-mm="၉။ NoSQL / MongoDB">9. NoSQL / MongoDB</h2>
+<div class="q"><div class="qhead" data-mm="Q1. MySQL နဲ့ NoSQL ဘာကွာလဲ?">Q1. MySQL vs NoSQL?</div><div class="answer" data-mm='&lt;table style="width:100%;border-collapse:collapse"&gt;&lt;tr&gt;&lt;th style="border:1px solid #ddd;padding:8px;text-align:left"&gt;MySQL&lt;/th&gt;&lt;th style="border:1px solid #ddd;padding:8px;text-align:left"&gt;NoSQL&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="border:1px solid #ddd;padding:8px"&gt;Relational Table နဲ့ SQL ကို အဓိကအသုံးပြုပါတယ်။&lt;/td&gt;&lt;td style="border:1px solid #ddd;padding:8px"&gt;Document, Key-Value, Wide-Column, Graph စတဲ့ Model တွေ ရှိပါတယ်။&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="border:1px solid #ddd;padding:8px"&gt;Relational Transactional Data အတွက် အလွန်သင့်တော်ပါတယ်။&lt;/td&gt;&lt;td style="border:1px solid #ddd;padding:8px"&gt;Flexible Data Model နဲ့ သီးခြား Scalability Pattern လိုတဲ့ Workload တွေအတွက် အသုံးဝင်နိုင်ပါတယ်။&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;&lt;b&gt;ဖြေဆိုရန်:&lt;/b&gt; “ရွေးချယ်မှုက Data Model, Consistency Requirement, Access Pattern နဲ့ Scalability Requirement ပေါ်မူတည်ပါတယ်။ NoSQL က အမြဲတမ်း ပိုကောင်းတာ ဒါမှမဟုတ် ပိုမြန်တာ မဟုတ်ပါဘူး။”&lt;/p&gt;'>
 <table style="width:100%;border-collapse:collapse">
 <tr><th style="border:1px solid #ddd;padding:8px;text-align:left">MySQL</th><th style="border:1px solid #ddd;padding:8px;text-align:left">NoSQL</th></tr>
 <tr><td style="border:1px solid #ddd;padding:8px">Relational tables</td><td style="border:1px solid #ddd;padding:8px">Document/key-value/wide-column/graph models</td></tr>
@@ -436,28 +496,20 @@ WHERE user_id = ?
 </table>
 <p><b>Answer:</b> “The choice depends on the data model, consistency requirements, access patterns, and scalability requirements. NoSQL is not automatically better or faster.”</p>
 </div></div>
-
-<div class="q"><div class="qhead">Q2. What is MongoDB?</div><div class="answer"><p>MongoDB is a document-oriented NoSQL database. Data is stored as documents in collections, and it supports indexes and aggregation queries.</p></div></div>
-
-<div class="q"><div class="qhead">Q3. How should you answer about your MongoDB experience?</div><div class="answer"><p>“MongoDB is included in my technical skill set and I understand the document model, indexing and aggregation concepts. Most of my production database experience, however, has been with Oracle, PostgreSQL and MySQL, so my hands-on production MongoDB experience is more limited.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q2. MongoDB ဆိုတာ ဘာလဲ?">Q2. What is MongoDB?</div><div class="answer" data-mm="&lt;p&gt;MongoDB က Document-Oriented NoSQL Database ဖြစ်ပါတယ်။ Data ကို Collection ထဲမှာ Document တွေအဖြစ် သိမ်းပြီး Index နဲ့ Aggregation Query တွေကို Support လုပ်ပါတယ်။&lt;/p&gt;"><p data-mm="MongoDB က document-oriented NoSQL database ဖြစ်ပါတယ်။ Data ကို collection ထဲက document တွေအဖြစ် သိမ်းပြီး index နဲ့ aggregation query တွေကို support လုပ်ပါတယ်။">MongoDB is a document-oriented NoSQL database. Data is stored as documents in collections, and it supports indexes and aggregation queries.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q3. MongoDB Experience ကို ဘယ်လိုဖြေမလဲ?">Q3. How should you answer about your MongoDB experience?</div><div class="answer" data-mm="&lt;p&gt;“MongoDB က ကျွန်တော့် Technical Skill Set ထဲမှာ ပါဝင်ပြီး Document Model, Indexing နဲ့ Aggregation Concept တွေကို နားလည်ပါတယ်။ ဒါပေမယ့် Production Database Experience အများစုက Oracle, PostgreSQL နဲ့ MySQL ဖြစ်တာကြောင့် Production MongoDB Hands-on Experience က ပိုနည်းပါတယ်။”&lt;/p&gt;"><p>“MongoDB is included in my technical skill set and I understand the document model, indexing and aggregation concepts. Most of my production database experience, however, has been with Oracle, PostgreSQL and MySQL, so my hands-on production MongoDB experience is more limited.”</p></div></div>
 </section>
-
 <section id="docker">
-<h2>10. Docker &amp; Kubernetes</h2>
-
-<div class="q"><div class="qhead">Q1. What is Docker?</div><div class="answer"><p>Docker packages an application and its dependencies into a container image so it can run consistently across environments.</p></div></div>
-
-<div class="q"><div class="qhead">Q2. What is Kubernetes?</div><div class="answer"><p>Kubernetes is a container orchestration platform for deploying, scaling and managing containerized workloads.</p><p>Know these terms: Pod, Deployment, Service, Replica, ConfigMap, Secret, health checks, scaling.</p></div></div>
-
-<div class="q"><div class="qhead">Q3. Have you used Kubernetes?</div><div class="answer"><p>“I have hands-on experience with Docker and cloud deployment, mainly on AWS. My Kubernetes experience is more limited, but I understand core concepts such as Pods, Deployments, Services, replicas and scaling, and I’m continuing to improve my Kubernetes knowledge.”</p></div></div>
-
-<div class="q"><div class="qhead">Q4. What is a Pod?</div><div class="answer"><p>A Pod is the basic deployable unit in Kubernetes. It contains one or more containers that share networking and storage context.</p></div></div>
+<h2 data-mm="၁၀။ Docker &amp; Kubernetes">10. Docker &amp; Kubernetes</h2>
+<div class="q"><div class="qhead" data-mm="Q1. Docker ဆိုတာ ဘာလဲ?">Q1. What is Docker?</div><div class="answer" data-mm="&lt;p&gt;Docker က Application နဲ့ သူ့ရဲ့ Dependencies တွေကို Container Image ထဲ Package လုပ်ပေးပြီး Environment မတူတဲ့နေရာတွေမှာ Consistent ဖြစ်အောင် Run နိုင်စေပါတယ်။&lt;/p&gt;"><p data-mm="Docker က application နဲ့ dependencies တွေကို container image ထဲ package လုပ်ပြီး environment မတူတာတွေမှာ consistent ဖြစ်အောင် run နိုင်စေပါတယ်။">Docker packages an application and its dependencies into a container image so it can run consistently across environments.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q2. Kubernetes ဆိုတာ ဘာလဲ?">Q2. What is Kubernetes?</div><div class="answer" data-mm="&lt;p&gt;Kubernetes က Containerized Workload တွေကို Deploy, Scale နဲ့ Manage လုပ်ဖို့ အသုံးပြုတဲ့ Container Orchestration Platform ဖြစ်ပါတယ်။&lt;/p&gt;
+&lt;p&gt;Pod, Deployment, Service, Replica, ConfigMap, Secret, Health Check နဲ့ Scaling လို Term တွေကို သိထားသင့်ပါတယ်။&lt;/p&gt;"><p data-mm="Kubernetes က containerized workload တွေကို deploy, scale နဲ့ manage လုပ်ဖို့ container orchestration platform ဖြစ်ပါတယ်။">Kubernetes is a container orchestration platform for deploying, scaling and managing containerized workloads.</p><p>Know these terms: Pod, Deployment, Service, Replica, ConfigMap, Secret, health checks, scaling.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q3. Kubernetes ကို သုံးဖူးလား?">Q3. Have you used Kubernetes?</div><div class="answer" data-mm="&lt;p&gt;“Docker နဲ့ Cloud Deployment ကို Hands-on သုံးဖူးပြီး အဓိကအားဖြင့် AWS ကို အသုံးပြုခဲ့ပါတယ်။ Kubernetes Hands-on Experience ကတော့ ပိုနည်းပါတယ်။ ဒါပေမယ့် Pod, Deployment, Service, Replica နဲ့ Scaling လို Core Concept တွေကို နားလည်ပြီး Kubernetes Knowledge ကို ဆက်လက်လေ့လာနေပါတယ်။”&lt;/p&gt;"><p>“I have hands-on experience with Docker and cloud deployment, mainly on AWS. My Kubernetes experience is more limited, but I understand core concepts such as Pods, Deployments, Services, replicas and scaling, and I’m continuing to improve my Kubernetes knowledge.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q4. Kubernetes Pod ဆိုတာ ဘာလဲ?">Q4. What is a Pod?</div><div class="answer" data-mm="&lt;p&gt;Pod က Kubernetes မှာ Deploy လုပ်နိုင်တဲ့ အခြေခံ Unit ဖြစ်ပါတယ်။ Container တစ်ခု ဒါမှမဟုတ် Container အများကြီး ပါဝင်နိုင်ပြီး Network နဲ့ Storage Context တချို့ကို Share လုပ်ပါတယ်။&lt;/p&gt;"><p>A Pod is the basic deployable unit in Kubernetes. It contains one or more containers that share networking and storage context.</p></div></div>
 </section>
-
 <section id="system">
-<h2>11. System Design — Ride-Hailing Platform</h2>
-<p class="sub">Use this structure if they ask you to design a high-concurrency ride/order system.</p>
-
+<h2 data-mm="၁၁။ System Design — Ride-Hailing Platform">11. System Design — Ride-Hailing Platform</h2>
+<p class="sub" data-mm="High-Concurrency Ride/Order System Design မေးလာရင် ဒီ Structure ကို အသုံးပြုပါ။">Use this structure if they ask you to design a high-concurrency ride/order system.</p>
 <pre><code>                         Client
                             ↓
                        API Gateway
@@ -478,8 +530,7 @@ WHERE user_id = ?
        ┌──────────┼──────────┐
        ↓          ↓          ↓
  Notification  Analytics   Other services</code></pre>
-
-<div class="q"><div class="qhead">Q1. How would you design ride acceptance?</div><div class="answer">
+<div class="q"><div class="qhead" data-mm="Q1. Ride Acceptance System ကို ဘယ်လို Design လုပ်မလဲ?">Q1. How would you design ride acceptance?</div><div class="answer" data-mm="&lt;ol&gt;&lt;li&gt;Driver ကို Authenticate လုပ်မယ်။&lt;/li&gt;&lt;li&gt;Ride နဲ့ Driver Eligibility ကို Validate လုပ်မယ်။&lt;/li&gt;&lt;li&gt;လိုအပ်ရင် Ride အတွက် Distributed Lock ရယူမယ်။&lt;/li&gt;&lt;li&gt;Ride က AVAILABLE ဖြစ်နေသေးလား စစ်မယ်။&lt;/li&gt;&lt;li&gt;Database Transaction ဒါမှမဟုတ် Conditional Update သုံးပြီး ACCEPTED အဖြစ် ပြောင်းမယ်။&lt;/li&gt;&lt;li&gt;Lock ကို Release လုပ်မယ်။&lt;/li&gt;&lt;li&gt;Kafka ထဲကို RideAccepted Event Publish လုပ်မယ်။&lt;/li&gt;&lt;li&gt;Downstream Consumer တွေက Notification/Analytics ကို Asynchronously Process လုပ်မယ်။&lt;/li&gt;&lt;li&gt;Retry နဲ့ Duplicate Request တွေအတွက် Idempotency ကို သုံးမယ်။&lt;/li&gt;&lt;/ol&gt;">
 <ol>
 <li>Authenticate the driver.</li>
 <li>Validate the ride and driver eligibility.</li>
@@ -492,74 +543,54 @@ WHERE user_id = ?
 <li>Use idempotency for retries and duplicate requests.</li>
 </ol>
 </div></div>
-
-<div class="q"><div class="qhead">Q2. Where would you use Redis?</div><div class="answer"><p>For low-latency cache data and potentially a distributed coordination mechanism such as a lock. The database remains the source of truth for critical ride state.</p></div></div>
-
-<div class="q"><div class="qhead">Q3. Where would you use Kafka?</div><div class="answer"><p>For asynchronous events such as RideAccepted, notification events, analytics events and other decoupled downstream processing.</p></div></div>
-
-<div class="q"><div class="qhead">Q4. How would you prevent duplicate booking?</div><div class="answer"><p>Combine concurrency control with database correctness: distributed lock where appropriate, conditional state transition/transaction in the database, and idempotency for repeated client requests.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q2. Redis ကို ဘယ်နေရာမှာ အသုံးပြုမလဲ?">Q2. Where would you use Redis?</div><div class="answer" data-mm="&lt;p&gt;Low-Latency Cache Data အတွက်နဲ့ လိုအပ်ရင် Distributed Lock လို Coordination Mechanism အတွက် Redis ကို အသုံးပြုနိုင်ပါတယ်။ Critical Ride State အတွက်တော့ Database ကို Source of Truth အဖြစ် ဆက်ထားမယ်။&lt;/p&gt;"><p>For low-latency cache data and potentially a distributed coordination mechanism such as a lock. The database remains the source of truth for critical ride state.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q3. Kafka ကို ဘယ်နေရာမှာ အသုံးပြုမလဲ?">Q3. Where would you use Kafka?</div><div class="answer" data-mm="&lt;p&gt;RideAccepted, Notification, Analytics နဲ့ အခြား Decoupled Downstream Processing တွေအတွက် Asynchronous Event အနေနဲ့ Kafka ကို အသုံးပြုမယ်။&lt;/p&gt;"><p>For asynchronous events such as RideAccepted, notification events, analytics events and other decoupled downstream processing.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q4. Duplicate Booking မဖြစ်အောင် ဘယ်လိုကာကွယ်မလဲ?">Q4. How would you prevent duplicate booking?</div><div class="answer" data-mm="&lt;p&gt;Concurrency Control နဲ့ Database Correctness ကို ပေါင်းစပ်အသုံးပြုမယ်။ လိုအပ်ရင် Distributed Lock သုံးမယ်၊ Database မှာ Conditional State Transition/Transaction သုံးမယ်၊ Client Request ထပ်ခါထပ်ခါလာရင် Idempotency သုံးမယ်။&lt;/p&gt;"><p>Combine concurrency control with database correctness: distributed lock where appropriate, conditional state transition/transaction in the database, and idempotency for repeated client requests.</p></div></div>
 </section>
-
 <section id="behavioral">
-<h2>12. Behavioral Questions</h2>
-
-<div class="q"><div class="qhead">Q1. Why do you want this position?</div><div class="answer"><p>“I’m interested because the role focuses strongly on Java backend development, high-concurrency systems, microservices, Kafka, Redis and database performance. I already have hands-on experience with Java, Spring Boot, Kafka, MySQL, multithreading and microservices, and I want to deepen my experience in distributed and high-scale backend systems.”</p></div></div>
-
-<div class="q"><div class="qhead">Q2. Tell me about a difficult production/problem-solving experience.</div><div class="answer"><p><b>Use your real 40% story:</b></p><p><b>Situation:</b> Report generation was taking too long.</p><p><b>Task:</b> Improve processing time while preserving business logic.</p><p><b>Action:</b> Analyzed the batch flow and introduced multithreading for independent processing tasks with Spring Batch.</p><p><b>Result:</b> Report generation time was reduced by around 40%.</p></div></div>
-
-<div class="q"><div class="qhead">Q3. What is your biggest strength?</div><div class="answer"><p>“One of my strengths is that I can work across the application stack but have developed a strong backend focus. I enjoy understanding business requirements, designing APIs, working with databases and improving system performance.”</p></div></div>
-
-<div class="q"><div class="qhead">Q4. What is a weakness?</div><div class="answer"><p>“My hands-on Kubernetes experience is more limited compared with my Java and Spring Boot experience. I understand the core concepts and have been improving my knowledge because I want to become stronger in production-grade container orchestration.”</p></div></div>
-
-<div class="q"><div class="qhead">Q5. What do you do when you don't know an answer?</div><div class="answer"><p>“I would be honest about what I know and what I haven't used directly. Then I would explain the related concepts I do understand and describe how I would investigate or learn the missing part.”</p></div></div>
-
-<div class="q"><div class="qhead">Q6. Why should we hire you?</div><div class="answer"><p>“My experience matches several important parts of this role: Java, Spring Boot, Kafka, MySQL, multithreading and microservices. I also have experience improving system performance and working on enterprise applications. I’m particularly motivated to grow further in high-concurrency and distributed backend systems.”</p></div></div>
+<h2 data-mm="၁၂။ Behavioral Questions">12. Behavioral Questions</h2>
+<div class="q"><div class="qhead" data-mm="Q1. ဒီ Position ကို ဘာကြောင့် လိုချင်တာလဲ?">Q1. Why do you want this position?</div><div class="answer" data-mm="&lt;p&gt;“ဒီ Role က Java Backend Development, High-Concurrency System, Microservices, Kafka, Redis နဲ့ Database Performance ကို အဓိကထားတာကြောင့် စိတ်ဝင်စားပါတယ်။ Java, Spring Boot, Kafka, MySQL, Multithreading နဲ့ Microservices တွေမှာ Hands-on Experience ရှိပြီး Distributed နဲ့ High-Scale Backend System ပိုင်းမှာ အတွေ့အကြုံကို ပိုမိုနက်ရှိုင်းစေချင်ပါတယ်။”&lt;/p&gt;"><p>“I’m interested because the role focuses strongly on Java backend development, high-concurrency systems, microservices, Kafka, Redis and database performance. I already have hands-on experience with Java, Spring Boot, Kafka, MySQL, multithreading and microservices, and I want to deepen my experience in distributed and high-scale backend systems.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q2. ခက်ခဲတဲ့ Production Problem ဒါမှမဟုတ် Problem-Solving Experience တစ်ခုကို ပြောပြပါ။">Q2. Tell me about a difficult production/problem-solving experience.</div><div class="answer" data-mm="&lt;p&gt;&lt;b&gt;Situation:&lt;/b&gt; Report Generation က အချိန်အရမ်းကြာနေပါတယ်။&lt;/p&gt;&lt;p&gt;&lt;b&gt;Task:&lt;/b&gt; Business Logic မပြောင်းဘဲ Processing Time ကို လျှော့ချရမယ်။&lt;/p&gt;&lt;p&gt;&lt;b&gt;Action:&lt;/b&gt; Batch Flow ကို Analyze လုပ်ပြီး တစ်ခုနဲ့တစ်ခု မမှီခိုတဲ့ Processing Task တွေအတွက် Spring Batch နဲ့ Multithreading ထည့်သုံးခဲ့ပါတယ်။&lt;/p&gt;&lt;p&gt;&lt;b&gt;Result:&lt;/b&gt; Report Generation Time ကို ၄၀% လောက် လျှော့ချနိုင်ခဲ့ပါတယ်။&lt;/p&gt;"><p><b>Use your real 40% story:</b></p><p><b>Situation:</b> Report generation was taking too long.</p><p><b>Task:</b> Improve processing time while preserving business logic.</p><p><b>Action:</b> Analyzed the batch flow and introduced multithreading for independent processing tasks with Spring Batch.</p><p><b>Result:</b> Report generation time was reduced by around 40%.</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q3. သင့်ရဲ့ အကြီးမားဆုံး Strength က ဘာလဲ?">Q3. What is your biggest strength?</div><div class="answer" data-mm="&lt;p&gt;“ကျွန်တော့် Strength တစ်ခုက Application Stack တစ်ခုလုံးကို အလုပ်လုပ်နိုင်ပေမယ့် Backend ပိုင်းမှာ အထူးအားကောင်းလာတာပါ။ Business Requirement ကို နားလည်တာ၊ API Design လုပ်တာ၊ Database နဲ့ အလုပ်လုပ်တာနဲ့ System Performance ကို Improve လုပ်တာတွေကို သဘောကျပါတယ်။”&lt;/p&gt;"><p>“One of my strengths is that I can work across the application stack but have developed a strong backend focus. I enjoy understanding business requirements, designing APIs, working with databases and improving system performance.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q4. သင့်ရဲ့ Weakness က ဘာလဲ?">Q4. What is a weakness?</div><div class="answer" data-mm="&lt;p&gt;“Java နဲ့ Spring Boot Experience နဲ့ နှိုင်းယှဉ်ရင် Kubernetes Hands-on Experience က ပိုနည်းပါတယ်။ Core Concept တွေကို နားလည်ပြီး Production-grade Container Orchestration ပိုင်းမှာ ပိုအားကောင်းလာဖို့ ဆက်လက်လေ့လာနေပါတယ်။”&lt;/p&gt;"><p>“My hands-on Kubernetes experience is more limited compared with my Java and Spring Boot experience. I understand the core concepts and have been improving my knowledge because I want to become stronger in production-grade container orchestration.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q5. မသိတဲ့ Question တစ်ခုမေးလာရင် ဘာလုပ်မလဲ?">Q5. What do you do when you don't know an answer?</div><div class="answer" data-mm="&lt;p&gt;“ကျွန်တော်သိတာနဲ့ ကိုယ်တိုင်တိုက်ရိုက် မသုံးဖူးတာကို ရိုးရိုးသားသား ပြောပါမယ်။ ပြီးရင် သိတဲ့ Related Concept တွေကို ရှင်းပြပြီး မသိသေးတဲ့အပိုင်းကို ဘယ်လို Investigate လုပ်မလဲ၊ ဘယ်လို Learn လုပ်မလဲဆိုတာ ပြောပြပါမယ်။”&lt;/p&gt;"><p>“I would be honest about what I know and what I haven't used directly. Then I would explain the related concepts I do understand and describe how I would investigate or learn the missing part.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q6. ဘာကြောင့် သင့်ကို Hire လုပ်သင့်တာလဲ?">Q6. Why should we hire you?</div><div class="answer" data-mm="&lt;p&gt;“ကျွန်တော့် Experience က ဒီ Role ရဲ့ အရေးကြီးတဲ့အပိုင်းတော်တော်များများနဲ့ ကိုက်ညီပါတယ် — Java, Spring Boot, Kafka, MySQL, Multithreading နဲ့ Microservices တွေပါ။ System Performance Improve လုပ်ဖူးသလို Enterprise Application တွေမှာလည်း အလုပ်လုပ်ဖူးပါတယ်။ အထူးသဖြင့် High-Concurrency နဲ့ Distributed Backend System ပိုင်းမှာ ပိုပြီးတိုးတက်ချင်ပါတယ်။”&lt;/p&gt;"><p>“My experience matches several important parts of this role: Java, Spring Boot, Kafka, MySQL, multithreading and microservices. I also have experience improving system performance and working on enterprise applications. I’m particularly motivated to grow further in high-concurrency and distributed backend systems.”</p></div></div>
 </section>
-
 <section id="cv">
-<h2>13. CV-Based Questions</h2>
-
-<div class="q"><div class="qhead">Q1. Tell me about your financial/accounting system.</div><div class="answer"><p>“I worked on a financial and accounting system using Mifos X, Spring Boot, Angular 16, Kafka and MySQL. I worked on backend development and event-driven architecture, and I also optimized Spring Batch processing with multithreading, reducing report generation time by 40%.”</p></div></div>
-
-<div class="q"><div class="qhead">Q2. Tell me about your current role.</div><div class="answer"><p>“Currently I work as a Full-Stack Developer on enterprise applications. I’ve developed an innovation competition platform, backend communication microservices, a property management platform and a job portal using technologies including Java Spring Boot, Spring Cloud Gateway, Oracle and PostgreSQL. I’ve also worked with AWS and deployment tools.”</p></div></div>
-
-<div class="q"><div class="qhead">Q3. Tell me about your Prediction Market project.</div><div class="answer"><p>“I worked on a microservice-based prediction market platform using Go, Spring Cloud Gateway, React and PostgreSQL. The services covered users, markets, betting, wallets, P2P and transactions. We also used Redis-backed WebSocket updates for live bets and wallet balances.”</p></div></div>
-
-<div class="q"><div class="qhead">Q4. What is your MyBatis experience?</div><div class="answer"><p>“I have hands-on experience developing and maintaining REST APIs using Java, MyBatis and Oracle. MyBatis is useful when I need more direct control over SQL and query behavior.”</p></div></div>
-
-<div class="q"><div class="qhead">Q5. What technologies are you strongest in?</div><div class="answer"><p>“For backend development, I would say Java, Spring Boot, REST APIs, microservices, Kafka and SQL/database integration are among my strongest areas. I also have experience with Spring Batch, MyBatis, AWS and Docker.”</p></div></div>
-
-<div class="q"><div class="qhead">Q6. Your CV says Full-Stack Developer. Why a Backend Engineer role?</div><div class="answer"><p>“Although my current title is Full-Stack Developer, a significant part of my recent work has been backend-focused: Spring Boot services, microservices, API development, databases, Kafka and performance optimization. I enjoy backend architecture and solving scalability and concurrency problems, so I want to focus more deeply on backend engineering.”</p></div></div>
+<h2 data-mm="၁၃။ CV အပေါ်အခြေခံ မေးခွန်းများ">13. CV-Based Questions</h2>
+<div class="q"><div class="qhead" data-mm="Q1. သင့်ရဲ့ Financial/Accounting System Project ကို ပြောပြပါ။">Q1. Tell me about your financial/accounting system.</div><div class="answer" data-mm="&lt;p&gt;“Mifos X, Spring Boot, Angular 16, Kafka နဲ့ MySQL သုံးထားတဲ့ Financial and Accounting System တစ်ခုမှာ အလုပ်လုပ်ခဲ့ပါတယ်။ Backend Development နဲ့ Event-Driven Architecture ပိုင်းမှာ အလုပ်လုပ်ခဲ့ပြီး Spring Batch Processing ကို Multithreading သုံးပြီး Optimize လုပ်ခဲ့ပါတယ်။ အဲဒီနည်းနဲ့ Report Generation Time ကို ၄၀% လျှော့ချနိုင်ခဲ့ပါတယ်။”&lt;/p&gt;"><p>“I worked on a financial and accounting system using Mifos X, Spring Boot, Angular 16, Kafka and MySQL. I worked on backend development and event-driven architecture, and I also optimized Spring Batch processing with multithreading, reducing report generation time by 40%.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q2. လက်ရှိ Role အကြောင်း ပြောပြပါ။">Q2. Tell me about your current role.</div><div class="answer" data-mm="&lt;p&gt;“လက်ရှိမှာ Enterprise Application တွေအတွက် Full-Stack Developer အဖြစ် အလုပ်လုပ်နေပါတယ်။ Innovation Competition Platform, Backend Communication Microservices, Property Management Platform နဲ့ Job Portal တွေကို Java Spring Boot, Spring Cloud Gateway, Oracle နဲ့ PostgreSQL စတဲ့ Technology တွေသုံးပြီး Develop လုပ်ခဲ့ပါတယ်။ AWS နဲ့ Deployment Tool တွေကိုလည်း အသုံးပြုဖူးပါတယ်။”&lt;/p&gt;"><p>“Currently I work as a Full-Stack Developer on enterprise applications. I’ve developed an innovation competition platform, backend communication microservices, a property management platform and a job portal using technologies including Java Spring Boot, Spring Cloud Gateway, Oracle and PostgreSQL. I’ve also worked with AWS and deployment tools.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q3. Prediction Market Project အကြောင်း ပြောပြပါ။">Q3. Tell me about your Prediction Market project.</div><div class="answer" data-mm="&lt;p&gt;“Go, Spring Cloud Gateway, React နဲ့ PostgreSQL သုံးထားတဲ့ Microservice-based Prediction Market Platform တစ်ခုမှာ အလုပ်လုပ်ခဲ့ပါတယ်။ User, Market, Betting, Wallet, P2P နဲ့ Transaction Service တွေပါဝင်ပါတယ်။ Live Bet နဲ့ Wallet Balance တွေကို Real-Time Update လုပ်ဖို့ Redis-backed WebSocket ကိုလည်း အသုံးပြုခဲ့ပါတယ်။”&lt;/p&gt;"><p>“I worked on a microservice-based prediction market platform using Go, Spring Cloud Gateway, React and PostgreSQL. The services covered users, markets, betting, wallets, P2P and transactions. We also used Redis-backed WebSocket updates for live bets and wallet balances.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q4. MyBatis Experience က ဘယ်လိုလဲ?">Q4. What is your MyBatis experience?</div><div class="answer" data-mm="&lt;p&gt;“Java, MyBatis နဲ့ Oracle သုံးပြီး REST API တွေ Develop နဲ့ Maintain လုပ်ဖူးပါတယ်။ SQL နဲ့ Query Behavior ကို ပိုပြီး Direct Control လုပ်ဖို့လိုတဲ့အခါ MyBatis က အသုံးဝင်ပါတယ်။”&lt;/p&gt;"><p>“I have hands-on experience developing and maintaining REST APIs using Java, MyBatis and Oracle. MyBatis is useful when I need more direct control over SQL and query behavior.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q5. ဘယ် Technology တွေမှာ အားအကောင်းဆုံးလဲ?">Q5. What technologies are you strongest in?</div><div class="answer" data-mm="&lt;p&gt;“Backend Development ပိုင်းမှာ Java, Spring Boot, REST API, Microservices, Kafka နဲ့ SQL/Database Integration တွေက ကျွန်တော့် Strongest Area တွေထဲမှာ ပါပါတယ်။ Spring Batch, MyBatis, AWS နဲ့ Docker Experience လည်း ရှိပါတယ်။”&lt;/p&gt;"><p>“For backend development, I would say Java, Spring Boot, REST APIs, microservices, Kafka and SQL/database integration are among my strongest areas. I also have experience with Spring Batch, MyBatis, AWS and Docker.”</p></div></div>
+<div class="q"><div class="qhead" data-mm="Q6. CV မှာ Full-Stack Developer လို့ရေးထားပေမယ့် ဘာကြောင့် Backend Engineer Role ကို လျှောက်တာလဲ?">Q6. Your CV says Full-Stack Developer. Why a Backend Engineer role?</div><div class="answer" data-mm="&lt;p&gt;“လက်ရှိ Title က Full-Stack Developer ဖြစ်ပေမယ့် မကြာသေးခင်က လုပ်ခဲ့တဲ့အလုပ်တွေထဲမှာ Backend ပိုင်းက အများကြီးပါဝင်ပါတယ် — Spring Boot Service, Microservices, API Development, Database, Kafka နဲ့ Performance Optimization တွေပါ။ Backend Architecture နဲ့ Scalability/Concurrency Problem တွေကို ဖြေရှင်းရတာကို သဘောကျတဲ့အတွက် Backend Engineering ပိုင်းကို ပိုပြီးနက်ရှိုင်းစွာ Focus လုပ်ချင်ပါတယ်။”&lt;/p&gt;"><p>“Although my current title is Full-Stack Developer, a significant part of my recent work has been backend-focused: Spring Boot services, microservices, API development, databases, Kafka and performance optimization. I enjoy backend architecture and solving scalability and concurrency problems, so I want to focus more deeply on backend engineering.”</p></div></div>
 </section>
-
 <section id="rapid">
-<h2>14. Rapid Revision — Last 15 Minutes</h2>
-<p class="sub">Read these short answers immediately before the interview.</p>
-
+<h2 data-mm="၁၄။ Rapid Revision — နောက်ဆုံး ၁၅ မိနစ်">14. Rapid Revision — Last 15 Minutes</h2>
+<p class="sub" data-mm="Interview မဝင်ခင် နောက်ဆုံးအချိန်မှာ ဒီ Short Answer တွေကို ပြန်ဖတ်ပါ။">Read these short answers immediately before the interview.</p>
 <div class="grid">
-<div class="mini"><b>Thread</b>Lightweight unit of execution within a process.</div>
-<div class="mini"><b>Thread Pool</b>Reusable threads for controlled concurrent execution.</div>
-<div class="mini"><b>synchronized</b>Mutual exclusion around a monitor.</div>
-<div class="mini"><b>volatile</b>Visibility, not atomicity.</div>
-<div class="mini"><b>Race Condition</b>Concurrent shared-data access where timing changes the result.</div>
-<div class="mini"><b>Deadlock</b>Threads wait forever for each other's locks.</div>
-<div class="mini"><b>DI</b>Spring provides dependencies instead of classes creating them.</div>
-<div class="mini"><b>@Transactional</b>Defines a transaction boundary.</div>
-<div class="mini"><b>Redis</b>Low-latency key-value store; cache/coordination use cases.</div>
-<div class="mini"><b>Distributed Lock</b>Coordinates a critical operation across instances.</div>
-<div class="mini"><b>Idempotency</b>Retries do not create repeated business effects.</div>
-<div class="mini"><b>Kafka</b>Asynchronous event/messaging platform for decoupled processing.</div>
-<div class="mini"><b>Partition</b>Ordered Kafka log segment enabling parallelism.</div>
-<div class="mini"><b>Consumer Group</b>Consumers share partitions within a group.</div>
-<div class="mini"><b>Offset</b>Message position in a partition.</div>
-<div class="mini"><b>Index</b>Speeds suitable queries at storage/write cost.</div>
-<div class="mini"><b>Read/Write Split</b>Writes to primary, reads from replicas; watch replication lag.</div>
-<div class="mini"><b>Eventual Consistency</b>Temporary divergence followed by convergence.</div>
-<div class="mini"><b>Docker</b>Packages app + dependencies into containers.</div>
-<div class="mini"><b>Kubernetes</b>Orchestrates containerized workloads.</div>
+<div class="mini" data-mm="&lt;b&gt;Thread&lt;/b&gt;Thread ဆိုတာ Process တစ်ခုအတွင်းက Lightweight Unit of Execution ပါ။"><b>Thread</b>Lightweight unit of execution within a process.</div>
+<div class="mini" data-mm="&lt;b&gt;Thread Pool&lt;/b&gt;Task တွေကို Reusable Thread တွေသုံးပြီး Execute လုပ်စေတဲ့ Pool ဖြစ်ပါတယ်။"><b>Thread Pool</b>Reusable threads for controlled concurrent execution.</div>
+<div class="mini" data-mm="&lt;b&gt;synchronized&lt;/b&gt;Monitor အပေါ် Mutual Exclusion ပေးပြီး တစ်ချိန်တည်းမှာ Thread တစ်ခုကပဲ Critical Section ကို Execute လုပ်စေပါတယ်။"><b>synchronized</b>Mutual exclusion around a monitor.</div>
+<div class="mini" data-mm="&lt;b&gt;volatile&lt;/b&gt;Thread တွေအကြား Variable Value ရဲ့ Visibility ကို ပေးပါတယ်။ Atomicity ကိုတော့ မပေးပါဘူး။"><b>volatile</b>Visibility, not atomicity.</div>
+<div class="mini" data-mm="&lt;b&gt;Race Condition&lt;/b&gt;Shared Data ကို Concurrent Access လုပ်တဲ့အခါ Timing ပေါ်မူတည်ပြီး Result ပြောင်းလဲနိုင်တဲ့အခြေအနေပါ။"><b>Race Condition</b>Concurrent shared-data access where timing changes the result.</div>
+<div class="mini" data-mm="&lt;b&gt;Deadlock&lt;/b&gt;Thread တွေက တစ်ခုနဲ့တစ်ခုကိုင်ထားတဲ့ Lock ကို အပြန်အလှန်စောင့်နေလို့ ဆက်မလုပ်နိုင်တဲ့အခြေအနေပါ။"><b>Deadlock</b>Threads wait forever for each other's locks.</div>
+<div class="mini" data-mm="&lt;b&gt;DI&lt;/b&gt;Spring က Class အတွက် Dependency ကို Provide လုပ်ပေးတာဖြစ်ပြီး Class ကိုယ်တိုင် Create မလုပ်ရပါဘူး။"><b>DI</b>Spring provides dependencies instead of classes creating them.</div>
+<div class="mini" data-mm="&lt;b&gt;@Transactional&lt;/b&gt;Database Operation တွေအတွက် Transaction Boundary ကို သတ်မှတ်ပေးပါတယ်။"><b>@Transactional</b>Defines a transaction boundary.</div>
+<div class="mini" data-mm="&lt;b&gt;Redis&lt;/b&gt;Low-Latency Key-Value Store ဖြစ်ပြီး Cache နဲ့ Coordination လို Use Case တွေအတွက် အသုံးများပါတယ်။"><b>Redis</b>Low-latency key-value store; cache/coordination use cases.</div>
+<div class="mini" data-mm="&lt;b&gt;Distributed Lock&lt;/b&gt;Application Instance အများကြား Critical Operation ကို Coordinate လုပ်ပေးတဲ့ Lock ဖြစ်ပါတယ်။"><b>Distributed Lock</b>Coordinates a critical operation across instances.</div>
+<div class="mini" data-mm="&lt;b&gt;Idempotency&lt;/b&gt;Retry လုပ်လည်း Business Effect ကို ထပ်ခါထပ်ခါ မဖြစ်စေတဲ့ Design ဖြစ်ပါတယ်။"><b>Idempotency</b>Retries do not create repeated business effects.</div>
+<div class="mini" data-mm="&lt;b&gt;Kafka&lt;/b&gt;Asynchronous Event/Messaging Platform ဖြစ်ပြီး Service တွေကို Decouple လုပ်ဖို့ အသုံးပြုနိုင်ပါတယ်။"><b>Kafka</b>Asynchronous event/messaging platform for decoupled processing.</div>
+<div class="mini" data-mm="&lt;b&gt;Partition&lt;/b&gt;Kafka ရဲ့ Ordered Log Segment ဖြစ်ပြီး Parallel Processing ကို ကူညီပေးပါတယ်။"><b>Partition</b>Ordered Kafka log segment enabling parallelism.</div>
+<div class="mini" data-mm="&lt;b&gt;Consumer Group&lt;/b&gt;Consumer တွေက Partition တွေကို ခွဲဝေယူပြီး Parallel Processing လုပ်တဲ့အုပ်စုပါ။"><b>Consumer Group</b>Consumers share partitions within a group.</div>
+<div class="mini" data-mm="&lt;b&gt;Offset&lt;/b&gt;Kafka Partition ထဲက Message Position ကို သတ်မှတ်ပေးတဲ့ Value ပါ။"><b>Offset</b>Message position in a partition.</div>
+<div class="mini" data-mm="&lt;b&gt;Index&lt;/b&gt;သင့်တော်တဲ့ Query တွေမှာ Database Row တွေကို ပိုမြန်မြန်ရှာနိုင်အောင် ကူညီတဲ့ Data Structure ပါ။"><b>Index</b>Speeds suitable queries at storage/write cost.</div>
+<div class="mini" data-mm="&lt;b&gt;Read/Write Split&lt;/b&gt;Write ကို Primary ဆီပို့ပြီး Read ကို Replica ဆီပို့တဲ့ Architecture ဖြစ်ပါတယ်။ Replication Lag ကို သတိထားရပါတယ်။"><b>Read/Write Split</b>Writes to primary, reads from replicas; watch replication lag.</div>
+<div class="mini" data-mm="&lt;b&gt;Eventual Consistency&lt;/b&gt;Distributed System ရဲ့ Component တွေ ခဏတာ State မတူနိုင်ပေမယ့် နောက်ဆုံးမှာ Consistent ဖြစ်လာတဲ့ Model ပါ။"><b>Eventual Consistency</b>Temporary divergence followed by convergence.</div>
+<div class="mini" data-mm="&lt;b&gt;Docker&lt;/b&gt;Application နဲ့ Dependencies တွေကို Container Image ထဲ Package လုပ်ပေးတဲ့ Technology ပါ။"><b>Docker</b>Packages app + dependencies into containers.</div>
+<div class="mini" data-mm="&lt;b&gt;Kubernetes&lt;/b&gt;Containerized Workload တွေကို Deploy, Scale နဲ့ Manage လုပ်ပေးတဲ့ Orchestration Platform ပါ။"><b>Kubernetes</b>Orchestrates containerized workloads.</div>
 </div>
-
-<h3>Top 12 questions to say out loud</h3>
+<h3 data-mm="အသံထွက်ပြီး Practice လုပ်ရန် အရေးကြီးဆုံး မေးခွန်း ၁၂ ခု">Top 12 questions to say out loud</h3>
 <ol>
 <li>Tell me about yourself.</li>
 <li>Tell me about your Java experience.</li>
@@ -574,89 +605,48 @@ WHERE user_id = ?
 <li>How would you optimize a slow MySQL query?</li>
 <li>Why are you interested in this position?</li>
 </ol>
-
 <div class="note good"><b>Final interview rule:</b> If you have hands-on experience, say “I implemented/used...”. If you only know the concept, say “I understand the concept...” or “My hands-on experience is limited...”. Never invent production experience.</div>
 </section>
-
 </main>
 </div>
-
 <footer>Use the search box to find any topic or question. Tip: press Ctrl+F only if you want the browser's search; the box above searches the guide itself.</footer>
 
+
+
 <script>
-const search = document.getElementById('search');
-const sections = [...document.querySelectorAll('main section')];
-const count = document.createElement('span');
-count.id = 'count';
-const toolbar = document.createElement('div');
-toolbar.className = 'toolbar';
-const hint = document.createElement('span');
-hint.textContent = 'Search results are highlighted below.';
-toolbar.appendChild(hint);
-toolbar.appendChild(count);
-document.querySelector('main').prepend(toolbar);
+(function(){
+  const enBtn=document.getElementById('langEn');
+  const mmBtn=document.getElementById('langMm');
+  if(!enBtn || !mmBtn) return;
 
-function escapeRegExp(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+  document.querySelectorAll('[data-mm]').forEach(el=>{
+    if(!el.dataset.enHtml) el.dataset.enHtml=el.innerHTML;
+  });
 
-function restore(el){
-  if(!el.dataset.original) el.dataset.original = el.innerHTML;
-  el.innerHTML = el.dataset.original;
-}
+  window.interviewLang='en';
 
-function highlight(el, term){
-  restore(el);
-  if(!term) return;
-  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
-    acceptNode(node){
-      if(node.parentElement.closest('script,style')) return NodeFilter.FILTER_REJECT;
-      return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+  function applyLanguage(lang){
+    window.interviewLang=lang;
+    document.querySelectorAll('[data-mm]').forEach(el=>{
+      if(!el.dataset.enHtml) el.dataset.enHtml=el.innerHTML;
+      el.innerHTML = lang==='mm' ? el.dataset.mm : el.dataset.enHtml;
+    });
+    enBtn.classList.toggle('active',lang==='en');
+    mmBtn.classList.toggle('active',lang==='mm');
+    document.documentElement.lang=lang==='mm'?'my':'en';
+
+    const search=document.getElementById('search');
+    if(search){
+      search.placeholder = lang==='mm'
+        ? 'Java, Kafka, Redis, MySQL စသည်ဖြင့် ရှာပါ...'
+        : 'Search questions, Java, Kafka, Redis, MySQL...';
+      search.dispatchEvent(new Event('input'));
     }
-  });
-  const nodes=[];
-  while(walker.nextNode()) nodes.push(walker.currentNode);
-  const re=new RegExp(escapeRegExp(term),'gi');
-  nodes.forEach(node=>{
-    const text=node.nodeValue;
-    if(!re.test(text)) return;
-    re.lastIndex=0;
-    const frag=document.createDocumentFragment();
-    let last=0, m;
-    while((m=re.exec(text))){
-      frag.appendChild(document.createTextNode(text.slice(last,m.index)));
-      const mark=document.createElement('mark');
-      mark.textContent=m[0];
-      frag.appendChild(mark);
-      last=m.index+m[0].length;
-    }
-    frag.appendChild(document.createTextNode(text.slice(last)));
-    node.parentNode.replaceChild(frag,node);
-  });
-}
+  }
 
-search.addEventListener('input', ()=>{
-  const term=search.value.trim().toLowerCase();
-  let matched=0;
-  sections.forEach(sec=>{
-    restore(sec);
-    if(!term){
-      sec.classList.remove('hidden');
-      return;
-    }
-    const text=sec.textContent.toLowerCase();
-    const ok=text.includes(term);
-    sec.classList.toggle('hidden',!ok);
-    if(ok){matched++; highlight(sec,term);}
-  });
-  count.textContent = term ? `${matched} section${matched===1?'':'s'} found` : '';
-});
-
-document.querySelectorAll('aside a').forEach(a=>{
-  a.addEventListener('click',()=>{
-    search.value='';
-    sections.forEach(s=>{s.classList.remove('hidden'); restore(s);});
-    count.textContent='';
-  });
-});
+  enBtn.addEventListener('click',()=>applyLanguage('en'));
+  mmBtn.addEventListener('click',()=>applyLanguage('mm'));
+})();
 </script>
 </body>
 </html>
